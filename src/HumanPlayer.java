@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Created by admin on 11.10.2015.
- */
 public class HumanPlayer extends DefaultPlayer
 {
 

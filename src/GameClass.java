@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+//todo write tests (Ilya)
+
 public class GameClass
 {
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class GameClass
     public static void startNewGame(){
         byte NUM_OF_PLAYERS = 2;
         DefaultPlayer [] players = new DefaultPlayer[NUM_OF_PLAYERS];
+        //todo Add player choose (Sergey)
         players[0] = new HumanPlayer();
         players[1] = new HumanPlayer();
         Board.cleanBoard();
@@ -24,6 +27,7 @@ public class GameClass
                 if (winnerFlag == 1)  System.out.println("X winner");
                 else System.out.println("O winner");
             }
+            //todo rewrite if draw now it don`t works (Maksim)
             if (winnerFlag != 0){
                 System.out.println("Do you want to play again? Enter yes or no");
                 String y = sc.nextLine();

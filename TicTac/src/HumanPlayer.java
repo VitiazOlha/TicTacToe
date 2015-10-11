@@ -1,6 +1,6 @@
 /**
  * Created by admin on 11.10.2015.
  */
-public class HumanPlayer extends AbstractPlayer
+public class HumanPlayer extends DefaultPlayer
 {
 }

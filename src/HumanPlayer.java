@@ -27,9 +27,8 @@ public class HumanPlayer extends DefaultPlayer
     }
 
     @Override
-    public boolean makeAMove() {
-
-        return false;
+    public void makeAMove(byte value) {
+        Board.getCoordinates(inputX(),inputY(), value);
     }
 
     @Override

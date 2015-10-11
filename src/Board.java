@@ -2,7 +2,8 @@ public class Board {
     private static byte[][] field = new byte[3][3];
 
     //todo rewrite like toString(formating) !!!! REWRITE !!!!
-    public static String printBoard() {
+
+    public static String convertToString() {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for (; i < 2; i++) {

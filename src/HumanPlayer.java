@@ -8,7 +8,7 @@ public class HumanPlayer extends Player {
             try {
                 byte coordinate = scanner.nextByte();
                 if ((coordinate > 0) && (coordinate <= 3)) {
-                    scanner.close();
+                    //scanner.close(); //code not worked with this string
                     return coordinate;
                 } else {
                     System.out.println("Invalid value");

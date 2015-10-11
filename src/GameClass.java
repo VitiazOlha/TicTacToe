@@ -12,6 +12,7 @@ public class GameClass
         players[0] = new HumanPlayer();
         players[1] = new HumanPlayer();
         Board.cleanBoard();
+        Scanner sc = new Scanner(System.in);
 
         boolean flag = true;
         for (int i = 0; (i < 9) && flag; i++) {
@@ -25,11 +26,9 @@ public class GameClass
             }
             if (winnerFlag != 0){
                 System.out.println("Do you want to play again? Enter yes or no");
-                Scanner sc = new Scanner(System.in);
-                 String y = sc.next("yes");
-                if (y == "yes")
+                String y = sc.nextLine();
+                if (y.equals("yes"))
                 {
-                    Board.cleanBoard();
                     startNewGame();
                 } else break;
             }

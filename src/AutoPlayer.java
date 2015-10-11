@@ -18,4 +18,9 @@ public static void ComputerMove()
     public boolean makeAMove() {
         return false;
     }
+
+    @Override
+    public boolean canMove() {
+        return false;
+    }
 }

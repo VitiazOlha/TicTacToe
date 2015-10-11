@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class HumanPlayer extends Player {
     //todo ! if exception is avaliable, code stops working !
     private byte inputValue(char nameCoordinate) {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);// if scanner here code stop working
         while (true) {
+            Scanner scanner = new Scanner(System.in);// if scanner here code working
             System.out.print("Enter " + nameCoordinate + " (1..3): ");
             try {
                 byte coordinate = scanner.nextByte();

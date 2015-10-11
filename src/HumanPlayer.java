@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class HumanPlayer extends Player {
+    //todo ! if exception is avaliable, code stops working !
     private byte inputValue(char nameCoordinate) {
         Scanner scanner = new Scanner(System.in);
         while (true) {

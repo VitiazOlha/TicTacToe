@@ -11,6 +11,7 @@ public static void ComputerMove()
         y = (int) (Math.random() * 3);
     }
     Board[x][y] = '0';
+    //loll
 
 }
 

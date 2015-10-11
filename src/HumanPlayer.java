@@ -5,17 +5,19 @@ import java.io.InputStreamReader;
 public class HumanPlayer extends DefaultPlayer
 {
     @Override
-    public boolean makeAmove () throws IOException
+    public boolean makeAmove() throws IOException
     {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Make your move. || Choose from 1 to 3 on X and Y coordinates.");
-        if (makeAmove())
+        String myMove = br.readLine();
+        Byte myBestMove = Byte.parseByte(myMove);
+
+        if ()
 
     }
 
+    @Override
+    public boolean canMove() {
 
-
-
-
+    }
 }

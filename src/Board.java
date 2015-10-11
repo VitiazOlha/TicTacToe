@@ -45,7 +45,7 @@ public class Board {
         field[x - 1][y - 1] = value;
     }
 
-    //todo ! not check all variables ! need to rewrite
+    //todo ! not check all option ! need to rewrite
     public static byte checkGame() {
         byte winner = 0;
         for (int i = 0; i < 3; i++) {

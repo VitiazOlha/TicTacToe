@@ -3,9 +3,9 @@
  */
 public class Board {
     public static byte[][] Field =
-            {       {'0', '0', '0'},
-                    {'0', '0', '0'},
-                    {'0', '0', '0'}
+            {       {0, 0, 0},
+                    {0, 0, 0},
+                    {0, 0, 0}
             };
 
     public static void PrintField() {

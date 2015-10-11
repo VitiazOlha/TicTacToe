@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Created by admin on 11.10.2015.
@@ -28,7 +29,7 @@ public class HumanPlayer extends DefaultPlayer
     }
 
     @Override
-    public boolean canMove() {
-
+    public void canMove() {
+        return;
     }
 }

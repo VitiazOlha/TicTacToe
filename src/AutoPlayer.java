@@ -1,8 +1,12 @@
 /**
  * Created by admin on 11.10.2015.
  */
-public class AutoPlayer //extends DefaultPlayer
-{//todo automatic algorytm Olga
+public class AutoPlayer extends DefaultPlayer {//todo automatic algortm Olga
+
+    @Override
+    public void makeAMove(byte value) {
+
+    }
 /*public static void ComputerMove()
 {
     int x = (int) (Math.random() * 3), y = (int) (Math.random() * 3);

@@ -1,7 +1,6 @@
 public class Board {
     private static byte[][] field = new byte[3][3];
 
-
     //todo rewrite like toString(formating) !!!! REWRITE !!!!
     public static String printBoard() {
         StringBuilder builder = new StringBuilder();
@@ -26,7 +25,6 @@ public class Board {
         }
     }
 
-
     public static void cleanBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -35,14 +33,17 @@ public class Board {
         }
     }
 
-    public static boolean getCoordinates(byte x, byte y, byte value) {
-        if (field[x - 1][y - 1] != 0) {
-            System.out.println("Sell is full, choose another position ");
+    public static boolean isPossibleToMove(byte x, byte y){
+        if (field[x - 1][y - 1] == 0) {
             return false;
         } else {
-            field[x - 1][y - 1] = value;
+            System.out.println("Sell is full, choose another position ");
             return true;
         }
+    }
+
+    public static void getCoordinates(byte x, byte y, byte value) {
+        field[x - 1][y - 1] = value;
     }
 
     public static byte checkGame() {

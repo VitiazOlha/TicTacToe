@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class GameClass
 {
     public static void main(String[] args) {
@@ -21,8 +23,18 @@ public class GameClass
                 if (winnerFlag == 1)  System.out.println("X winner");
                 else System.out.println("O winner");
             }
-
+            if (winnerFlag != 0){
+                System.out.println("Do you want to play again? Enter yes or no");
+                Scanner sc = new Scanner(System.in);
+                 String y = sc.next("yes");
+                if (y == "yes")
+                {
+                    Board.cleanBoard();
+                    startNewGame();
+                } else break;
+            }
         }
+
 
     }
 }

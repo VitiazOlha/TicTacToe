@@ -14,7 +14,7 @@ public class GameClass
 
         boolean flag = true;
         for (int i = 0; (i < 9) && flag; i++) {
-            players[i % NUM_OF_PLAYERS].makeAMove(i % NUM_OF_PLAYERS == 0? (byte)1 : (byte)(-1));
+            players[i % NUM_OF_PLAYERS].makeAMove((byte)(i % NUM_OF_PLAYERS == 0? 1 : (-1)));
             Board.printBoard();
 
 

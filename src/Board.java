@@ -14,8 +14,8 @@ public class Board {
             for (int j = 0; j < 3; j++) {
                 System.out.print(field[i][j]);
             }
-        }
             System.out.println();
+        }
     }
 
     public static void cleanBoard() {
@@ -25,8 +25,16 @@ public class Board {
     }
 
 //todo rewrite value
-    public static void getCoordinates(byte x, byte y,byte value) {
-        field[x - 1][y - 1] = value;
+    public static boolean getCoordinates(byte x, byte y,byte value) {
+        if (field[x - 1][y - 1] != 0)
+        {
+            System.out.println("Sell is full, choose another position ");
+            return false;
+        }
+        else{
+            field[x - 1][y - 1] = value;
+            return true;
+        }
     }
 }
 

@@ -1,12 +1,5 @@
-import java.io.BufferedReader;
-import java.nio.Buffer;
-
 public class Board {
-    private static byte[][] field =
-            {       {0, 0, 0},
-                    {0, 0, 0},
-                    {0, 0, 0}
-            };
+    private static byte[][] field = new byte[3][3];
 
 
     //todo rewrite like toString(formating) !!!! REWRITE !!!!

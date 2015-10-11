@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 public class HumanPlayer extends DefaultPlayer
 {
     @Override
-    public boolean makeAmove () extends IOException
+    public boolean makeAmove () throws IOException
     {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

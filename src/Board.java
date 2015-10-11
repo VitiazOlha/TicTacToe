@@ -15,32 +15,36 @@ public class Board {
         return builder.toString();
     }
 
-    public static char makeSymbol(byte value){
-        switch (value){
-            case 1: return 'X';
-            case -1: return 'O';
-            default: return ' ';
+    public static char makeSymbol(byte value) {
+        switch (value) {
+            case 1:
+                return 'X';
+            case -1:
+                return 'O';
+            default:
+                return ' ';
         }
     }
 
 
     public static void cleanBoard() {
-        for ( int i = 0; i < 3; i++)
-            for (int j = 0; j < 3; j++)
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 field[i][j] = 0;
+            }
+        }
     }
 
-    public static boolean getCoordinates(byte x, byte y,byte value) {
-        if (field[x - 1][y - 1] != 0)
-        {
+    public static boolean getCoordinates(byte x, byte y, byte value) {
+        if (field[x - 1][y - 1] != 0) {
             System.out.println("Sell is full, choose another position ");
             return false;
-        }
-        else{
+        } else {
             field[x - 1][y - 1] = value;
             return true;
         }
     }
+
     public static byte checkGame() {
         byte winner = 0;
         for (int i = 0; i < 3; i++) {
@@ -56,10 +60,7 @@ public class Board {
             } else if (field[0][2] == field[1][1] && field[1][1] == field[2][0]) {
                 winner = field[0][2];
             }
-
         }
         return winner;
-
     }
 }
-

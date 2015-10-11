@@ -2,15 +2,14 @@ import java.util.Scanner;
 
 //todo write tests (Ilya)
 
-public class GameClass
-{
+public class GameClass {
     public static void main(String[] args) {
         startNewGame();
     }
 
-    public static void startNewGame(){
+    public static void startNewGame() {
         byte NUM_OF_PLAYERS = 2;
-        DefaultPlayer [] players = new DefaultPlayer[NUM_OF_PLAYERS];
+        DefaultPlayer[] players = new DefaultPlayer[NUM_OF_PLAYERS];
         //todo Add player choose (Sergey)
         players[0] = new HumanPlayer();
         players[1] = new HumanPlayer();
@@ -24,20 +23,22 @@ public class GameClass
             byte winnerFlag = Board.checkGame();
             if (winnerFlag != 0) {
                 flag = false;
-                if (winnerFlag == 1)  System.out.println("X winner");
-                else System.out.println("O winner");
+                if (winnerFlag == 1) {
+                    System.out.println("X winner");
+                } else {
+                    System.out.println("O winner");
+                }
             }
             //todo rewrite if draw now it don`t works (Maksim)
-            if (winnerFlag != 0){
+            if (winnerFlag != 0) {
                 System.out.println("Do you want to play again? Enter yes or no");
                 String y = sc.nextLine();
-                if (y.equals("yes"))
-                {
+                if (y.equals("yes")) {
                     startNewGame();
-                } else break;
+                } else {
+                    break;
+                }
             }
         }
-
-
     }
 }

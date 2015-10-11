@@ -1,35 +1,39 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  * Created by admin on 11.10.2015.
  */
 public class HumanPlayer extends DefaultPlayer
 {
-    @Override
-    public Byte makeAmove() throws IOException
-    {
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Make your move. || Choose from 1 to 3 on X and Y coordinates.");
-        try {
-            String myMove = br.readLine();
-            Byte myBestMove = Byte.parseByte(myMove);
-            if (myBestMove <= 0 || myBestMove >= 3 ) {
-            }
+    public byte inputX(){
+        while(true) {
+            System.out.println("Enter X (1..3): ");
+            Scanner scanner = new Scanner(System.in);
+            byte x = scanner.nextByte();
+            if ((x > 0) && (x <= 3)) return x;
+            else System.out.println("Invalid value");
         }
-        catch ()
+    }
 
+    public byte inputY(){
+        while(true) {
+            System.out.println("Enter Y (1..3): ");
+            Scanner scanner = new Scanner(System.in);
+            byte y = scanner.nextByte();
+            if ((y > 0) && (y <= 3)) return y;
+            else System.out.println("Invalid value");
+        }
     }
 
     @Override
     public boolean makeAMove() {
+
         return false;
     }
 
     @Override
-    public void canMove() {
-        return;
+    public boolean canMove() {
+        return false;
     }
 }

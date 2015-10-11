@@ -16,7 +16,6 @@ public class Board {
             }
         }
             System.out.println();
-        }
     }
 
     public void getCooedinates(byte x, byte y, byte value) {

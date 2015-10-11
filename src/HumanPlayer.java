@@ -16,7 +16,7 @@ public class HumanPlayer extends DefaultPlayer
             if (myBestMove <= 0 || myBestMove >= 3 ) {
             }
         }
-        catch ()...
+        catch ()
 
     }
 

@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.nio.Buffer;
+
 public class Board {
     private static byte[][] field =
             {       {0, 0, 0},
@@ -5,13 +8,18 @@ public class Board {
                     {0, 0, 0}
             };
 
-    public static void printBoard() {
+
+    //todo rewrite like toString(formating) !!!! REWRITE !!!!
+    public static String printBoard() {
+        StringBuilder builder = new StringBuilder();
+
         int i = 0;
         for (; i < 2; i++) {
-            System.out.printf(" %c ? %c ? %c \n",makeSymbol(field[i][0]),makeSymbol(field[i][1]),makeSymbol(field[i][2]));
-            System.out.println("???????????");
+            builder.append(String.format(" %c ║ %c ║ %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
+            builder.append("═══╬═══╬═══\n");
         }
-        System.out.printf(" %c ? %c ? %c \n",makeSymbol(field[i][0]),makeSymbol(field[i][1]),makeSymbol(field[i][2]));
+        builder.append(String.format(" %c ║ %c ║ %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
+        return builder.toString();
     }
 
     public static char makeSymbol(byte value){
@@ -52,7 +60,7 @@ public class Board {
         if (winner == 0) {
             if (field[0][0] == field[1][1] && field[1][1] == field[2][2]) {
                 winner = field[0][0];
-            } else if (field[0][2] == field[1][1] && field[1][1] == field[0][2]) {
+            } else if (field[0][2] == field[1][1] && field[1][1] == field[2][0]) {
                 winner = field[0][2];
             }
 

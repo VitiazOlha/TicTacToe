@@ -25,9 +25,13 @@ public class HumanPlayer extends DefaultPlayer
         while(true) {
             System.out.println("Enter Y (1..3): ");
             Scanner scanner = new Scanner(System.in);
-            byte y = scanner.nextByte();
-            if ((y > 0) && (y <= 3)) return y;
-            else System.out.println("Invalid value");
+            try {
+                byte y = scanner.nextByte();
+                if ((y > 0) && (y <= 3)) return y;
+                else System.out.println("Invalid value");
+            } catch (Exception e) {
+                System.out.println("You can use only digits from 1 to 3.");
+            }
         }
     }
 

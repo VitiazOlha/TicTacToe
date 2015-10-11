@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-public class HumanPlayer extends DefaultPlayer {
-
+public class HumanPlayer extends Player {
     private byte inputValue(char nameCoordinate) {
         Scanner scanner = new Scanner(System.in);
         while (true) {

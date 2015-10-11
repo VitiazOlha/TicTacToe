@@ -4,7 +4,6 @@ public class Board {
     //todo rewrite like toString(formating) !!!! REWRITE !!!!
     public static String printBoard() {
         StringBuilder builder = new StringBuilder();
-
         int i = 0;
         for (; i < 2; i++) {
             builder.append(String.format(" %c ║ %c ║ %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
@@ -33,7 +32,7 @@ public class Board {
         }
     }
 
-    public static boolean isPossibleToMove(byte x, byte y){
+    public static boolean isPossibleToMove(byte x, byte y) {
         if (field[x - 1][y - 1] == 0) {
             return false;
         } else {
@@ -46,6 +45,7 @@ public class Board {
         field[x - 1][y - 1] = value;
     }
 
+    //todo ! not check all variables ! need to rewrite
     public static byte checkGame() {
         byte winner = 0;
         for (int i = 0; i < 3; i++) {

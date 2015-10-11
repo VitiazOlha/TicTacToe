@@ -1,7 +1,7 @@
 /**
  * Created by admin on 11.10.2015.
  */
-public class AutoPlayer extends DefaultPlayer {//todo automatic algortm Olga
+public class AutoPlayer extends Player {//todo automatic algortm Olga
 
     @Override
     public void makeAMove(byte value) {

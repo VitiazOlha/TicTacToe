@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 //todo write tests (Ilya)
 
-public class GameClass {
+public class Game {
     public static void main(String[] args) {
         startNewGame();
     }
 
     public static void startNewGame() {
-        byte NUM_OF_PLAYERS = 2;
-        DefaultPlayer[] players = new DefaultPlayer[NUM_OF_PLAYERS];
+        byte numOfPlayers = 2;
+        Player[] players = new Player[numOfPlayers];
         //todo Add player choose (Sergey)
         players[0] = new HumanPlayer();
         players[1] = new HumanPlayer();
@@ -18,7 +18,7 @@ public class GameClass {
 
         boolean flag = true;
         for (int i = 0; (i < 9) && flag; i++) {
-            players[i % NUM_OF_PLAYERS].makeAMove((byte) (i % NUM_OF_PLAYERS == 0 ? 1 : (-1)));
+            players[i % numOfPlayers].makeAMove((byte) (i % numOfPlayers == 0 ? 1 : (-1)));
             System.out.println(Board.printBoard());
             byte winnerFlag = Board.checkGame();
             if (winnerFlag != 0) {

@@ -17,6 +17,11 @@ public class HumanPlayer extends DefaultPlayer
     }
 
     @Override
+    public boolean makeAMove() {
+        return false;
+    }
+
+    @Override
     public boolean canMove() {
 
     }

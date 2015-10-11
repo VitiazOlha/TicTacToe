@@ -5,7 +5,6 @@ public class Board {
                     {0, 0, 0}
             };
 
-    //todo rewrite like toString(formating) !!!! REWRITE !!!!
     public static void printBoard() {
         int i = 0;
         for (; i < 2; i++) {

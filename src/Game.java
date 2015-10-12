@@ -19,7 +19,7 @@ public class Game {
         boolean flag = true;
         for (int i = 0; (i < 9) && flag; i++) {
             byte whoIsMove = (byte) (i % numOfPlayers);
-            if (whoIsMove == 1 || i==0) {
+            if (whoIsMove == 0) {
                 System.out.println(" \"X\" move now ");
             } else {
                 System.out.println(" \"O\" move now ");

@@ -42,8 +42,12 @@ public class Board {
         }
     }
 
-    public static void getCoordinates(byte x, byte y, byte value) {
+    public static void setCoordinates(byte x, byte y, byte value) {
         field[x - 1][y - 1] = value;
+    }
+
+    public static byte getCoordinates(byte x, byte y) {
+        return field[x][y];
     }
 
     //todo ! not check all option ! need to rewrite

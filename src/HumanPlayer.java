@@ -28,6 +28,6 @@ public class HumanPlayer extends Player {
             x = inputValue('X');
             y = inputValue('Y');
         } while (Board.isPossibleToMove(x, y));
-        Board.getCoordinates(x, y, value);
+        Board.setCoordinates(x, y, value);
     }
 }

@@ -1,31 +1,20 @@
 import java.util.Scanner;
 
-public class HumanPlayer extends DefaultPlayer
-{
-
-    public byte inputX(){
-        while(true) {
-            System.out.println("Enter X (1..3): ");
-            Scanner scanner = new Scanner(System.in);
+public class HumanPlayer extends Player {
+    //todo ! if exception is avaliable, code stops working !
+    private byte inputValue(char nameCoordinate) {
+        //Scanner scanner = new Scanner(System.in);// if scanner here code stop working
+        while (true) {
+            Scanner scanner = new Scanner(System.in);// if scanner here code working
+            System.out.print("Enter " + nameCoordinate + " (1..3): ");
             try {
-                byte x = scanner.nextByte();
-                if ((x > 0) && (x <= 3)) return x;
-                else System.out.println("Invalid value");
-            } catch (Exception e) {
-                System.out.println("You can use only digits from 1 to 3.");
-            }
-
-        }
-    }
-
-    public byte inputY(){
-        while(true) {
-            System.out.println("Enter Y (1..3): ");
-            Scanner scanner = new Scanner(System.in);
-            try {
-                byte y = scanner.nextByte();
-                if ((y > 0) && (y <= 3)) return y;
-                else System.out.println("Invalid value");
+                byte coordinate = scanner.nextByte();
+                if ((coordinate > 0) && (coordinate <= 3)) {
+                    //scanner.close(); //code not worked with this string
+                    return coordinate;
+                } else {
+                    System.out.println("Invalid value");
+                }
             } catch (Exception e) {
                 System.out.println("You can use only digits from 1 to 3.");
             }
@@ -34,6 +23,11 @@ public class HumanPlayer extends DefaultPlayer
 
     @Override
     public void makeAMove(byte value) {
-        while(!Board.getCoordinates(inputX(),inputY(), value));
+        byte x, y;
+        do {
+            x = inputValue('X');
+            y = inputValue('Y');
+        } while (Board.isPossibleToMove(x, y));
+        Board.getCoordinates(x, y, value);
     }
 }

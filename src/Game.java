@@ -29,9 +29,11 @@ public class Game {
                 } else {
                     System.out.println("O winner");
                 }
+            } else  if(i == 8){
+                System.out.println("It's a draw");
             }
             //todo rewrite if draw now it don`t works (Maksim)
-            if (winnerFlag != 0) {
+            if (winnerFlag != 0 || i==8) {
                 System.out.println("Do you want to play again? Enter yes or no");
                 String y = sc.nextLine();
                 if (y.equals("yes")) {

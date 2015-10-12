@@ -50,9 +50,9 @@ public class Board {
     public static byte checkGame() {
         byte winner = 0;
         for (int i = 0; i < 3; i++) {
-            if (field[i][0] == field[i][1] && field[i][1] == field[i][2]) {
+            if (field[i][0] == field[i][1] && field[i][1] == field[i][2] && field[i][0] != 0) {
                 winner = field[i][0];
-            } else if (field[0][i] == field[1][i] && field[1][i] == field[2][i]) {
+            } else if (field[0][i] == field[1][i] && field[1][i] == field[2][i] && field[0][i] !=0) {
                 winner = field[0][i];
             }
         }

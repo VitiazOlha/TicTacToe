@@ -7,10 +7,10 @@ public class Board {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for (; i < 2; i++) {
-            builder.append(String.format(" %c ║ %c ║ %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
-            builder.append("═══╬═══╬═══\n");
+            builder.append(String.format(" %c # %c # %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
+            builder.append("###########\n");
         }
-        builder.append(String.format(" %c ║ %c ║ %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
+        builder.append(String.format(" %c # %c # %c \n", makeSymbol(field[i][0]), makeSymbol(field[i][1]), makeSymbol(field[i][2])));
         return builder.toString();
     }
 

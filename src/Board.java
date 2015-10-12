@@ -47,7 +47,7 @@ public class Board {
     }
 
     //todo ! not check all option ! need to rewrite
-    public static byte checkGame() {
+    public static byte checkWinner() {
         byte winner = 0;
         for (int i = 0; i < 3; i++) {
             if (field[i][0] == field[i][1] && field[i][1] == field[i][2] && field[i][0] != 0) {

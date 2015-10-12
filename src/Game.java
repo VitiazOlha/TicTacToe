@@ -21,7 +21,7 @@ public class Game {
             byte whoIsMove = (byte) (i % numOfPlayers);
             players[whoIsMove].makeAMove((byte) (whoIsMove * (-2) + 1));        // 0 -> 1; 1 -> -1
             System.out.println(Board.convertToString());
-            byte winnerFlag = Board.checkGame();
+            byte winnerFlag = Board.checkWinner();
             if (winnerFlag != 0) {
                 flag = false;
                 if (winnerFlag == 1) {

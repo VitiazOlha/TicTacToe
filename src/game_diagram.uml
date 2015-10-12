@@ -2,12 +2,56 @@
 <Diagram>
   <ID>JAVA</ID>
   <OriginalElement />
-  <nodes />
+  <nodes>
+    <node x="284.5" y="0.0">Player</node>
+    <node x="278.0" y="189.5">HumanPlayer</node>
+    <node x="268.51666666666665" y="403.0">Game</node>
+    <node x="-74.69706840390882" y="401.5960912052117">Board</node>
+    <node x="0.0" y="105.0">AutoPlayer</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
+  <edges>
+    <edge source="HumanPlayer" target="Player">
+      <point x="0.0" y="-39.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="Game" target="HumanPlayer">
+      <point x="0.0" y="-63.5" />
+      <point x="387.51666666666665" y="378.0" />
+      <point x="389.5" y="378.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="AutoPlayer" target="Player">
+      <point x="0.0" y="-124.0" />
+      <point x="129.0" y="80.0" />
+      <point x="319.5" y="80.0" />
+      <point x="-70.0" y="27.5" />
+    </edge>
+    <edge source="Game" target="Player">
+      <point x="79.33333333333331" y="-63.5" />
+      <point x="466.84999999999997" y="378.0" />
+      <point x="511.5" y="378.0" />
+      <point x="511.5" y="80.0" />
+      <point x="459.5" y="80.0" />
+      <point x="70.0" y="27.5" />
+    </edge>
+    <edge source="Game" target="AutoPlayer">
+      <point x="-79.33333333333331" y="-63.5" />
+      <point x="308.18333333333334" y="378.0" />
+      <point x="129.0" y="378.0" />
+      <point x="0.0" y="124.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7496947496947497" x="270.5" y="399.5" />
   <SelectedNodes />
-  <Categories />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
 </Diagram>
 

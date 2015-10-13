@@ -10,7 +10,14 @@ public class CheckTheValue {
         if (row == N - 1 - column) {
             res += checkSideDiagonal(field);
         }
-        return res / 3;
+        if (res == 0) {
+            return 0;
+        } else if (res > 0) {
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
 
     private static int checkRow(int row, int[][] field) {

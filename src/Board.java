@@ -1,9 +1,7 @@
 public class Board {
     private static int[][] field = new int[3][3];
-    final static int N = 3;
 
     //todo rewrite like toString(formating) !!!! REWRITE !!!!
-
     public static String convertToString() {
         StringBuilder builder = new StringBuilder();
         int i = 0;
@@ -52,66 +50,6 @@ public class Board {
     }
 
     public static int checkWinner(int x, int y) {
-        return checkCell(x,y,field);
-    }
-
-    private static int checkCell(int row, int column, int[][] field) {
-        int res = checkRow(row, field);
-        res += checkColumn(column, field);
-        if (row == column) {
-            res += checkMainDiagonal(field);
-        }
-        if (row == N - 1 - column) {
-            res += checkSideDiagonal(field);
-        }
-        return res / 3;
-    }
-
-    private static int checkRow(int row, int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[row][i];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
-    }
-
-    private static int checkColumn(int column, int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[i][column];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
-    }
-
-    private static int checkMainDiagonal(int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[i][i];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
-    }
-
-    private static int checkSideDiagonal(int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[i][N - 1 - i];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
+        return CheckTheValue.checkCell(x,y,field);
     }
 }

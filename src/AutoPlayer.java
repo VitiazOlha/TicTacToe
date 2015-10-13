@@ -35,7 +35,7 @@ public class AutoPlayer extends Player {
     private int maxMove(int row, int column, int[][] field) {
         field[row][column] = 1;
         int max = -100;
-        if (checkCell(row, column, field) == 0) {
+        if (CheckTheValue.checkCell(row, column, field) == 0) {
             for (int x = 0; x < N; x++) {
                 for (int y = 0; y < N; y++) {
                     if (field[x][y] == 0) {
@@ -59,7 +59,7 @@ public class AutoPlayer extends Player {
     private int minMove(int row, int column, int[][] field) {
         field[row][column] = -1;
         int min = 100;
-        if (checkCell(row, column, field) == 0) {
+        if (CheckTheValue.checkCell(row, column, field) == 0) {
             for (int x = 0; x < N; x++) {
                 for (int y = 0; y < N; y++) {
                     if (field[x][y] == 0) {
@@ -77,67 +77,6 @@ public class AutoPlayer extends Player {
             }
         } else {
             return -1;
-        }
-    }
-
-    private int checkCell(int row, int column, int[][] field) {
-        int sum = 0;
-        sum += checkRow(row, field);
-        sum += checkColumn(column, field);
-        if (row == column) {
-            sum += checkMainDiagonal(field);
-        }
-        if (row == N - 1 - column) {
-            sum += checkSideDiagonal(field);
-        }
-        return sum;
-    }
-
-    private int checkRow(int row, int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[row][i];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
-    }
-
-    private int checkColumn(int column, int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[i][column];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
-    }
-
-    private int checkMainDiagonal(int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[i][i];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
-        }
-    }
-
-    private int checkSideDiagonal(int[][] field) {
-        int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += field[i][N - 1 - i];
-        }
-        if (Math.abs(sum) == 3) {
-            return sum;
-        } else {
-            return 0;
         }
     }
 }

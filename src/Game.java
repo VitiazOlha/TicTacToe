@@ -44,7 +44,7 @@ public class Game {
 
             Board.cleanBoard();
             Scanner sc = new Scanner(System.in);
-
+            //todo exit from game if player paste exit
             boolean flag = true;
             for (int i = 0; (i < 9) && flag; i++) {
                 byte whoIsMove = (byte) (i % numOfPlayers);

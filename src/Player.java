@@ -1,3 +1,3 @@
 public abstract class Player {
-    public abstract byte makeAMove(byte value);
+    public abstract int makeAMove(int value);
 }

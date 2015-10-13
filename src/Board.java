@@ -1,6 +1,6 @@
 public class Board {
-    private static byte[][] field = new byte[3][3];
-    final static byte N = 3;
+    private static int[][] field = new int[3][3];
+    final static int N = 3;
 
     //todo rewrite like toString(formating) !!!! REWRITE !!!!
 
@@ -15,7 +15,7 @@ public class Board {
         return builder.toString();
     }
 
-    public static char makeSymbol(byte value) {
+    public static char makeSymbol(int value) {
         switch (value) {
             case 1:
                 return 'X';
@@ -34,7 +34,7 @@ public class Board {
         }
     }
 
-    public static boolean isPossibleToMove(byte x, byte y) {
+    public static boolean isPossibleToMove(int x, int y) {
         if (field[x - 1][y - 1] == 0) {
             return false;
         } else {
@@ -43,20 +43,20 @@ public class Board {
         }
     }
 
-    public static void setCoordinates(byte x, byte y, byte value) {
+    public static void setCoordinates(int x, int y, int value) {
         field[x][y] = value;
     }
 
-    public static byte getCoordinates(byte x, byte y) {
+    public static int getCoordinates(int x, int y) {
         return field[x][y];
     }
 
-    public static byte checkWinner(byte x, byte y) {
+    public static int checkWinner(int x, int y) {
         return checkCell(x,y,field);
     }
 
-    private static byte checkCell(byte row, byte column, byte[][] field) {
-        byte res = checkRow(row, field);
+    private static int checkCell(int row, int column, int[][] field) {
+        int res = checkRow(row, field);
         res += checkColumn(column, field);
         if (row == column) {
             res += checkMainDiagonal(field);
@@ -64,11 +64,11 @@ public class Board {
         if (row == N - 1 - column) {
             res += checkSideDiagonal(field);
         }
-        return (byte)(res / 3);
+        return res / 3;
     }
 
-    private static byte checkRow(byte row, byte[][] field) {
-        byte sum = 0;
+    private static int checkRow(int row, int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[row][i];
         }
@@ -79,8 +79,8 @@ public class Board {
         }
     }
 
-    private static byte checkColumn(byte column, byte[][] field) {
-        byte sum = 0;
+    private static int checkColumn(int column, int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][column];
         }
@@ -91,8 +91,8 @@ public class Board {
         }
     }
 
-    private static byte checkMainDiagonal(byte[][] field) {
-        byte sum = 0;
+    private static int checkMainDiagonal(int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][i];
         }
@@ -103,8 +103,8 @@ public class Board {
         }
     }
 
-    private static byte checkSideDiagonal(byte[][] field) {
-        byte sum = 0;
+    private static int checkSideDiagonal(int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][N - 1 - i];
         }

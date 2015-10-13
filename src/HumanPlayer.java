@@ -2,13 +2,13 @@ import java.util.Scanner;
 
 public class HumanPlayer extends Player {
     //todo ! if exception is avaliable, code stops working !
-    private byte inputValue(char nameCoordinate) {
+    private int inputValue(char nameCoordinate) {
         //Scanner scanner = new Scanner(System.in);// if scanner here code stop working
         while (true) {
             Scanner scanner = new Scanner(System.in);// if scanner here code working
             System.out.print("Enter " + nameCoordinate + " (1..3): ");
             try {
-                byte coordinate = scanner.nextByte();
+                int coordinate = scanner.nextInt();
                 if ((coordinate > 0) && (coordinate <= 3)) {
                     //scanner.close(); //code not worked with this string
                     return coordinate;
@@ -22,13 +22,13 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public byte makeAMove(byte value) {
-        byte x, y;
+    public int makeAMove(int value) {
+        int x, y;
         do {
             x = inputValue('X');
             y = inputValue('Y');
         } while (Board.isPossibleToMove(x, y));
-        Board.setCoordinates((byte) (x - 1), (byte) (y - 1), value);
-        return Board.checkWinner((byte) (x - 1), (byte) (y - 1));
+        Board.setCoordinates(x - 1, y - 1, value);
+        return Board.checkWinner(x - 1, y - 1);
     }
 }

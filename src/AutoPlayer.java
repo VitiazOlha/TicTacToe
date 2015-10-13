@@ -1,24 +1,26 @@
 public class AutoPlayer extends Player {
-    final static byte N = 3;
-    private byte[][] oldField = new byte[N][N];
+    final static int N = 3;
+    private int[][] oldField = new int[N][N];
 
-    private void copyBoard(byte value) {
-        for (byte x = 0; x < 3; x++) {
-            for (byte y = 0; y < 3; y++) {
-                oldField[x][y] = (byte) (value * Board.getCoordinates(x, y));
+    private void copyBoard(int value) {
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                oldField[x][y] = value * Board.getCoordinates(x, y);
             }
         }
     }
 
     @Override
-    public byte makeAMove(byte value) {
+    public int makeAMove(int value) {
         copyBoard(value);
-        byte bestX = -1, bestY = -1, max = -100;
-        for (byte x = 0; x < N; x++) {
-            for (byte y = 0; y < N; y++) {
+        int bestX = -1;
+        int bestY = -1;
+        int max = -100;
+        for (int x = 0; x < N; x++) {
+            for (int y = 0; y < N; y++) {
                 if (oldField[x][y] == 0) {
-                    byte newMax = maxMove(x, y, oldField);
-                    if (newMax >= max) {
+                    int newMax = maxMove(x, y, oldField);
+                    if (newMax > max) {
                         max = newMax;
                         bestX = x;
                         bestY = y;
@@ -26,18 +28,18 @@ public class AutoPlayer extends Player {
                 }
             }
         }
-        Board.setCoordinates((byte) (bestX + 1), (byte) (bestY + 1), value);
+        Board.setCoordinates(bestX, bestY, value);
         return 0;
     }
 
-    private byte maxMove(byte row, byte column, byte[][] field) {
+    private int maxMove(int row, int column, int[][] field) {
         field[row][column] = 1;
-        byte max = -100;
+        int max = -100;
         if (checkCell(row, column, field) == 0) {
-            for (byte x = 0; x < N; x++) {
-                for (byte y = 0; y < N; y++) {
+            for (int x = 0; x < N; x++) {
+                for (int y = 0; y < N; y++) {
                     if (field[x][y] == 0) {
-                        byte newMax = minMove(x, y, field);
+                        int newMax = minMove(x, y, field);
                         if (newMax >= max) {
                             max = newMax;
                         }
@@ -54,14 +56,14 @@ public class AutoPlayer extends Player {
         }
     }
 
-    private byte minMove(byte row, byte column, byte[][] field) {
+    private int minMove(int row, int column, int[][] field) {
         field[row][column] = -1;
-        byte min = 100;
+        int min = 100;
         if (checkCell(row, column, field) == 0) {
-            for (byte x = 0; x < N; x++) {
-                for (byte y = 0; y < N; y++) {
+            for (int x = 0; x < N; x++) {
+                for (int y = 0; y < N; y++) {
                     if (field[x][y] == 0) {
-                        byte newMin = maxMove(x, y, field);
+                        int newMin = maxMove(x, y, field);
                         if (newMin <= min) {
                             min = newMin;
                         }
@@ -78,8 +80,8 @@ public class AutoPlayer extends Player {
         }
     }
 
-    private byte checkCell(byte row, byte column, byte[][] field) {
-        byte sum = 0;
+    private int checkCell(int row, int column, int[][] field) {
+        int sum = 0;
         sum += checkRow(row, field);
         sum += checkColumn(column, field);
         if (row == column) {
@@ -91,8 +93,8 @@ public class AutoPlayer extends Player {
         return sum;
     }
 
-    private byte checkRow(byte row, byte[][] field) {
-        byte sum = 0;
+    private int checkRow(int row, int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[row][i];
         }
@@ -103,8 +105,8 @@ public class AutoPlayer extends Player {
         }
     }
 
-    private byte checkColumn(byte column, byte[][] field) {
-        byte sum = 0;
+    private int checkColumn(int column, int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][column];
         }
@@ -115,8 +117,8 @@ public class AutoPlayer extends Player {
         }
     }
 
-    private byte checkMainDiagonal(byte[][] field) {
-        byte sum = 0;
+    private int checkMainDiagonal(int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][i];
         }
@@ -127,8 +129,8 @@ public class AutoPlayer extends Player {
         }
     }
 
-    private byte checkSideDiagonal(byte[][] field) {
-        byte sum = 0;
+    private int checkSideDiagonal(int[][] field) {
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][N - 1 - i];
         }

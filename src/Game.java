@@ -11,10 +11,10 @@ public class Game {
     }
 
     public static void startNewGame() {
-        byte numOfPlayers = 2;
+        int numOfPlayers = 2;
         Player[] players = new Player[numOfPlayers];
         players[0] = new HumanPlayer();
-        players[1] = new HumanPlayer();
+        players[1] = new AutoPlayer();
         //todo Add player choose (Sergey)
 
         /*try {
@@ -49,16 +49,16 @@ public class Game {
             //todo exit from game if player paste exit
             boolean flag = true;
             for (int i = 0; (i < 9) && flag; i++) {
-                byte whoIsMove = (byte) (i % numOfPlayers);
+                int whoIsMove = i % numOfPlayers;
                 if (whoIsMove == 0) {
                     System.out.println(" \"X\" move now ");
                 } else {
                     System.out.println(" \"O\" move now ");
                 }
                 System.out.println(Board.convertToString());
-                byte winnerFlag = players[whoIsMove].makeAMove((byte) (whoIsMove * (-2) + 1));// 0 -> 1; 1 -> -1
+                int winnerFlag = players[whoIsMove].makeAMove(whoIsMove * (-2) + 1);// 0 -> 1; 1 -> -1
                 System.out.println(Board.convertToString());
-                //byte winnerFlag = Board.checkWinner();
+                //int winnerFlag = Board.checkWinner();
 
 
                 if (winnerFlag != 0) {

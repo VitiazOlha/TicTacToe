@@ -13,9 +13,11 @@ public class Game {
     public static void startNewGame() {
         byte numOfPlayers = 2;
         Player[] players = new Player[numOfPlayers];
+        players[0] = new HumanPlayer();
+        players[1] = new HumanPlayer();
         //todo Add player choose (Sergey)
 
-        try {
+        /*try {
             String gameType = gameTypeCatch();
             switch (gameType) {
                 case "PvP":
@@ -41,7 +43,7 @@ public class Game {
                     break;
             }
 
-
+*/
             Board.cleanBoard();
             Scanner sc = new Scanner(System.in);
             //todo exit from game if player paste exit
@@ -53,9 +55,12 @@ public class Game {
                 } else {
                     System.out.println(" \"O\" move now ");
                 }
-                players[whoIsMove].makeAMove((byte) (whoIsMove * (-2) + 1));// 0 -> 1; 1 -> -1
                 System.out.println(Board.convertToString());
-                byte winnerFlag = Board.checkWinner();
+                byte winnerFlag = players[whoIsMove].makeAMove((byte) (whoIsMove * (-2) + 1));// 0 -> 1; 1 -> -1
+                System.out.println(Board.convertToString());
+                //byte winnerFlag = Board.checkWinner();
+
+
                 if (winnerFlag != 0) {
                     flag = false;
                     if (winnerFlag == 1) {
@@ -76,12 +81,12 @@ public class Game {
                         break;
                     }
                 }
-            }
+  /*          }
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
+        }*/
+    }}
 
     private static String gameTypeCatch() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

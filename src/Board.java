@@ -1,5 +1,6 @@
 public class Board {
     private static byte[][] field = new byte[3][3];
+    final static byte N = 3;
 
     //todo rewrite like toString(formating) !!!! REWRITE !!!!
 
@@ -43,30 +44,74 @@ public class Board {
     }
 
     public static void setCoordinates(byte x, byte y, byte value) {
-        field[x - 1][y - 1] = value;
+        field[x][y] = value;
     }
 
     public static byte getCoordinates(byte x, byte y) {
         return field[x][y];
     }
 
-    //todo ! not check all option ! need to rewrite
-    public static byte checkWinner() {
-        byte winner = 0;
-        for (int i = 0; i < 3; i++) {
-            if (field[i][0] == field[i][1] && field[i][1] == field[i][2] && field[i][0] != 0) {
-                winner = field[i][0];
-            } else if (field[0][i] == field[1][i] && field[1][i] == field[2][i] && field[0][i] !=0) {
-                winner = field[0][i];
-            }
+    public static byte checkWinner(byte x, byte y) {
+        return checkCell(x,y,field);
+    }
+
+    private static byte checkCell(byte row, byte column, byte[][] field) {
+        byte res = checkRow(row, field);
+        res += checkColumn(column, field);
+        if (row == column) {
+            res += checkMainDiagonal(field);
         }
-        if (winner == 0) {
-            if (field[0][0] == field[1][1] && field[1][1] == field[2][2]) {
-                winner = field[0][0];
-            } else if (field[0][2] == field[1][1] && field[1][1] == field[2][0]) {
-                winner = field[0][2];
-            }
+        if (row == N - 1 - column) {
+            res += checkSideDiagonal(field);
         }
-        return winner;
+        return (byte)(res / 3);
+    }
+
+    private static byte checkRow(byte row, byte[][] field) {
+        byte sum = 0;
+        for (int i = 0; i < N; i++) {
+            sum += field[row][i];
+        }
+        if (Math.abs(sum) == 3) {
+            return sum;
+        } else {
+            return 0;
+        }
+    }
+
+    private static byte checkColumn(byte column, byte[][] field) {
+        byte sum = 0;
+        for (int i = 0; i < N; i++) {
+            sum += field[i][column];
+        }
+        if (Math.abs(sum) == 3) {
+            return sum;
+        } else {
+            return 0;
+        }
+    }
+
+    private static byte checkMainDiagonal(byte[][] field) {
+        byte sum = 0;
+        for (int i = 0; i < N; i++) {
+            sum += field[i][i];
+        }
+        if (Math.abs(sum) == 3) {
+            return sum;
+        } else {
+            return 0;
+        }
+    }
+
+    private static byte checkSideDiagonal(byte[][] field) {
+        byte sum = 0;
+        for (int i = 0; i < N; i++) {
+            sum += field[i][N - 1 - i];
+        }
+        if (Math.abs(sum) == 3) {
+            return sum;
+        } else {
+            return 0;
+        }
     }
 }

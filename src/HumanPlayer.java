@@ -22,12 +22,13 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public void makeAMove(byte value) {
+    public byte makeAMove(byte value) {
         byte x, y;
         do {
             x = inputValue('X');
             y = inputValue('Y');
         } while (Board.isPossibleToMove(x, y));
-        Board.setCoordinates(x, y, value);
+        Board.setCoordinates((byte) (x - 1), (byte) (y - 1), value);
+        return Board.checkWinner((byte) (x - 1), (byte) (y - 1));
     }
 }

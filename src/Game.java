@@ -17,7 +17,6 @@ public class Game {
             chooseTypeGame(players);
 
             Board.cleanBoard();
-            Scanner sc = new Scanner(System.in);
             //todo exit from game if player paste exit
             boolean flag = true;
             for (int i = 0; (i < 9) && flag; i++) {
@@ -42,16 +41,6 @@ public class Game {
                     }
                 } else if (i == 8) {
                     System.out.println("It's a draw");
-                }
-                //todo rewrite if draw now it don`t works (Maksim)
-                if (winnerFlag != 0 || i == 8) {
-                    System.out.println("Do you want to play again? Enter yes or no");
-                    String yes = sc.nextLine();
-                    if (yes.equals("yes")) {
-                        startNewGame();
-                    } else {
-                        break;
-                    }
                 }
             }
 
@@ -100,6 +89,12 @@ public class Game {
                 }
                 break;
         }
+    }
+
+    public static String gameRestart() {
+            System.out.println("Do you want to play again? Enter yes or no");
+            Scanner sc = new Scanner(System.in);
+            return sc.nextLine();
     }
 }
 

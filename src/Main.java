@@ -4,7 +4,10 @@
 public class Main {
 
         public static void main(String[] args) {
-            Game.startNewGame();
+            do {
+                Game.startNewGame();
+            } while (Game.gameRestart().equals("yes"));
+
         }
     }
 

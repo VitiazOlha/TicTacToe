@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,6 +23,10 @@ public class Game {
             //todo exit from game if player paste exit
             boolean flag = true;
             for (int i = 0; (i < 9) && flag; i++) {
+                JTextField textField = new JTextField();
+                textField.addKeyListener(new KeyAdapter() {public void keyPressed(KeyEvent e) {}
+                });
+                if (textField.equals(0x20)) break;
                 int whoIsMove = i % numOfPlayers;
                 if (whoIsMove == 0) {
                     System.out.println(" \"X\" move now ");

@@ -14,36 +14,11 @@ public class Game {
         int numOfPlayers = 2;
         Player[] players = new Player[numOfPlayers];
         players[0] = new HumanPlayer();
-        players[1] = new AutoPlayer();
-        //todo Add player choose (Sergey)
+        players[1] = new HumanPlayer();
 
-        /*try {
-            String gameType = gameTypeCatch();
-            switch (gameType) {
-                case "PvP":
-                    players[0] = new HumanPlayer();
-                    players[1] = new HumanPlayer();
-                    break;
-                case "CvC":
-                    players[0] = new AutoPlayer();
-                    players[1] = new AutoPlayer();
-                    break;
-                case "PvC":
-                    String chooseWhoFirst = pVC();
-                    switch (chooseWhoFirst) {
-                        case "C":
-                            players[0] = new AutoPlayer();
-                            players[1] = new HumanPlayer();
-                            break;
-                        case "Me":
-                            players[0] = new HumanPlayer();
-                            players[1] = new AutoPlayer();
-                            break;
-                    }
-                    break;
-            }
+        try {
+            chooseTypeGame(players);
 
-*/
             Board.cleanBoard();
             Scanner sc = new Scanner(System.in);
             //todo exit from game if player paste exit
@@ -81,12 +56,39 @@ public class Game {
                         break;
                     }
                 }
-  /*          }
+           }
 
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+
     }}
+
+    private static void chooseTypeGame(Player[] players) throws IOException {
+        String gameType = gameTypeCatch();
+        switch (gameType) {
+            case "PvP":
+                players[0] = new HumanPlayer();
+                players[1] = new HumanPlayer();
+                break;
+            case "CvC":
+                players[0] = new AutoPlayer();
+                players[1] = new AutoPlayer();
+                break;
+            case "PvC":
+                String chooseWhoFirst = pVC();
+                switch (chooseWhoFirst) {
+                    case "C":
+                        players[0] = new AutoPlayer();
+                        players[1] = new HumanPlayer();
+                        break;
+                    case "Me":
+                        players[0] = new HumanPlayer();
+                        players[1] = new AutoPlayer();
+                        break;
+                }
+                break;
+        }
+    }
 
     private static String gameTypeCatch() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

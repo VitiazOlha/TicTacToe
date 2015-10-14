@@ -6,9 +6,6 @@ import java.util.Scanner;
 //todo write tests (Ilya)
 
 public class Game {
-    public static void main(String[] args) {
-        startNewGame();
-    }
 
     public static void startNewGame() {
         int numOfPlayers = 2;
@@ -56,12 +53,27 @@ public class Game {
                         break;
                     }
                 }
-           }
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
 
-    }}
+        }
+    }
+
+    private static String gameTypeCatch() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Chose the way of game: || PvP || PvC || CvC ||");
+        String answer = br.readLine();
+        return answer;
+    }
+
+    private static String pVC() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Chose who makes a first move: I make a first move (Me) || Computer makes a first move (C)");
+        String answer = br.readLine();
+        return answer;
+    }
 
     private static void chooseTypeGame(Player[] players) throws IOException {
         String gameType = gameTypeCatch();
@@ -89,19 +101,6 @@ public class Game {
                 break;
         }
     }
-
-    private static String gameTypeCatch() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Chose the way of game: || PvP || PvC || CvC ||");
-        String answer = br.readLine();
-        return answer;
-    }
-
-    private static String pVC() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Chose who makes a first move: I make a first move (Me) || Computer makes a first move (C)");
-        String answer = br.readLine();
-        return answer;
-    }
-
 }
+
+

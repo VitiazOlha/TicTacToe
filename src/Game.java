@@ -2,11 +2,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-
 //todo write tests (Ilya)
 
 public class Game {
-
     public static void startNewGame() {
         int numOfPlayers = 2;
         Player[] players = new Player[numOfPlayers];
@@ -15,7 +13,6 @@ public class Game {
 
         try {
             chooseTypeGame(players);
-
             Board.cleanBoard();
             //todo exit from game if player paste exit
             boolean flag = true;
@@ -29,9 +26,6 @@ public class Game {
                 System.out.println(Board.convertToString());
                 int winnerFlag = players[whoIsMove].makeAMove(whoIsMove * (-2) + 1);// 0 -> 1; 1 -> -1
                 System.out.println(Board.convertToString());
-                //int winnerFlag = Board.checkWinner();
-
-
                 if (winnerFlag != 0) {
                     flag = false;
                     if (winnerFlag == 1) {
@@ -43,10 +37,8 @@ public class Game {
                     System.out.println("It's a draw");
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
-
         }
     }
 
@@ -92,10 +84,8 @@ public class Game {
     }
 
     public static String gameRestart() {
-            System.out.println("Do you want to play again? Enter yes or no");
-            Scanner sc = new Scanner(System.in);
-            return sc.nextLine();
+        System.out.println("Do you want to play again? Enter yes or no");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
     }
 }
-
-

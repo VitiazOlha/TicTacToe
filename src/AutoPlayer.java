@@ -16,7 +16,6 @@ public class AutoPlayer extends Player {
     @Override
     public int makeAMove(int value) {
         copyBoard(value);
-
         int bestX = -1;
         int bestY = -1;
         int max = -100;

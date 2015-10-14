@@ -17,7 +17,6 @@ public class CheckTheValue {
         } else {
             return -1;
         }
-
     }
 
     private static int checkRow(int row, int[][] field) {

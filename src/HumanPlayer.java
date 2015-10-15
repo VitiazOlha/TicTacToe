@@ -12,13 +12,18 @@ public class HumanPlayer extends Player {
                 if ((coordinate > 0) && (coordinate <= 3)) {
                     //scanner.close(); //code not worked with this string
                     return coordinate;
-                } else {
-                    System.out.println("Invalid value");
-                }
+                } else if (coordinate == 9) {
+                    break;
+                } else if (coordinate == 0) {
+                    System.exit(0);
+                }else {
+                } System.out.println("Invalid value");
+
             } catch (Exception e) {
                 System.out.println("You can use only digits from 1 to 3.");
             }
         }
+        return 0;
     }
 
     @Override

@@ -1,9 +1,6 @@
 public class AutoPlayer extends Player {
     final static int N = 3;
-    final static int DEPTH = 5;
     private int[][] oldField = new int[N][N];
-
-    //todo add depth of analiz alhoritm
 
     private void copyBoard(int value) {
         for (int x = 0; x < 3; x++) {
@@ -16,14 +13,21 @@ public class AutoPlayer extends Player {
     @Override
     public int makeAMove(int value) {
         copyBoard(value);
+        int[] moveCoordinate;
+        moveCoordinate = minMaxAlgorithm();
+        Board.setCoordinates(moveCoordinate[0], moveCoordinate[1], value);
+        return Board.checkWinner(moveCoordinate[0], moveCoordinate[1]);
+    }
+
+    private int[] minMaxAlgorithm() {
         int bestX = -1;
         int bestY = -1;
-        int max = -100;
+        int max = Integer.MIN_VALUE;
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
                 if (oldField[x][y] == 0) {
-                    int newMax = maxMove(x, y, oldField, DEPTH);
-                    if (newMax > max) {
+                    int newMax = maxMove(x, y, oldField);
+                    if (newMax >= max) {
                         max = newMax;
                         bestX = x;
                         bestY = y;
@@ -31,63 +35,67 @@ public class AutoPlayer extends Player {
                 }
             }
         }
-        Board.setCoordinates(bestX, bestY, value);
-        return Board.checkWinner(bestX, bestY);
+        return new int[]{bestX, bestY};
     }
 
-    private int maxMove(int row, int column, int[][] field, int depth) {
+    private int maxMove(int row, int column, int[][] oldField) {
+        int[][] field = new int[N][N];
+        copyField(field, oldField);
         field[row][column] = 1;
-        int max = Integer.MIN_VALUE;
-        if (depth > 0) {
-            if (CheckTheValue.checkCell(row, column, field) == 0) {
-                for (int x = 0; x < N; x++) {
-                    for (int y = 0; y < N; y++) {
-                        if (field[x][y] == 0) {
-                            int newMax = minMove(x, y, field, depth - 1);
-                            if (newMax >= max) {
-                                max = newMax;
-                            }
+        int max = Integer.MAX_VALUE;
+        if (CheckTheValue.checkCell(row, column, field) == 0) {
+            for (int x = 0; x < N; x++) {
+                for (int y = 0; y < N; y++) {
+                    if (field[x][y] == 0) {
+                        int newMax = minMove(x, y, field);
+                        if (newMax < max) {
+                            max = newMax;
                         }
                     }
                 }
-                if (max == -100) {
-                    return 0;
-                } else {
-                    return max;
-                }
+            }
+            if (max == Integer.MAX_VALUE) {
+                return 0;
             } else {
-                return 1;
+                return max;
             }
         } else {
-            return 0;
+            return 1;
         }
     }
 
-    private int minMove(int row, int column, int[][] field, int depth) {
+    private int minMove(int row, int column, int[][] oldField) {
+        int[][] field = new int[N][N];
+        copyField(field, oldField);
         field[row][column] = -1;
-        int min = Integer.MAX_VALUE;
-        if (depth > 0) {
-            if (CheckTheValue.checkCell(row, column, field) == 0) {
-                for (int x = 0; x < N; x++) {
-                    for (int y = 0; y < N; y++) {
-                        if (field[x][y] == 0) {
-                            int newMin = maxMove(x, y, field, depth - 1);
-                            if (newMin <= min) {
-                                min = newMin;
-                            }
+        int min = Integer.MIN_VALUE;
+        if (CheckTheValue.checkCell(row, column, field) == 0) {
+            for (int x = 0; x < N; x++) {
+                for (int y = 0; y < N; y++) {
+                    if (field[x][y] == 0) {
+                        int newMin = maxMove(x, y, field);
+                        if (newMin > min) {
+                            min = newMin;
                         }
                     }
                 }
-                if (min == 100) {
-                    return 0;
-                } else {
-                    return min;
-                }
+            }
+            if (min == Integer.MIN_VALUE) {
+                return 0;
             } else {
-                return -1;
+                return min;
             }
         } else {
-            return 0;
+            return -1;
         }
+    }
+
+    private void copyField(int[][] field, int[][] oldField) {
+        for (int x = 0; x < N; x++) {
+            for (int y = 0; y < N; y++) {
+                field[x][y] = oldField[x][y];
+            }
+        }
+
     }
 }

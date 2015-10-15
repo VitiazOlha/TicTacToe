@@ -30,7 +30,7 @@ public class Game {
                 } else {
                     System.out.println(" \"O\" move now ");
                 }
-                System.out.println(Board.convertToString());
+
                 int winnerFlag = players[whoIsMove].makeAMove(whoIsMove * (-2) + 1);// 0 -> 1; 1 -> -1
                 System.out.println(Board.convertToString());
                 if (winnerFlag != 0) {

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class AutoPlayer extends Player {
     final static int N = 3;
     final static int DEPTH = 2;
@@ -53,7 +51,6 @@ public class AutoPlayer extends Player {
             for (int y = 0; y < N; y++) {
                 if (oldField[x][y] == 0) {
                     int newMax = maxMove(x, y, oldField, DEPTH);
-                    System.out.println(newMax);
                     if (newMax >= max) {
                         max = newMax;
                         bestX = x;

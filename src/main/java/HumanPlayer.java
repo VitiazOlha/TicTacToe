@@ -1,6 +1,13 @@
 import java.util.Scanner;
 
-public class HumanPlayer extends Player {
+public class HumanPlayer implements Player {
+    private ConsoleUserInputProvider userInputProvider;
+
+    public HumanPlayer(ConsoleUserInputProvider userInputProvider) {
+
+        this.userInputProvider = userInputProvider;
+    }
+
     //todo ! if exception is avaliable, code stops working !
     private int inputValue(char nameCoordinate) {
         //Scanner scanner = new Scanner(System.in);// if scanner here code stop working
@@ -35,6 +42,11 @@ public class HumanPlayer extends Player {
         } while (Board.isPossibleToMove(x, y));
         Board.setCoordinates(x - 1, y - 1, value);
         return Board.checkWinner(x - 1, y - 1);
+    }
+
+    @Override
+    public void doStep(Board board) {
+        // TODO impolement putting symbol by keyboard input
     }
 
 

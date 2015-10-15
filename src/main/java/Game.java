@@ -6,16 +6,45 @@ import java.util.Scanner;
 
 //todo write tests (Ilya)
 
-public class Game {
-    public static void startNewGame() {
+public abstract class Game {
+
+    private BoardStateAnalyzer boardStateAnalyzer;
+    private GameState currentState;
+
+    private static GameFactory gameFactory;
+    protected Player player1;
+    protected Player player2;
+    private Board board;
+
+    public Game(Player player1, Player player2, BoardStateAnalyzer boardStateAnalyzer) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.boardStateAnalyzer = boardStateAnalyzer;
+        this.currentState = GameState.NEW_GAME;
+    }
+
+    public void startNewGame() {
+        while (!isOver()) {
+
+            player1.doStep(board);
+            currentState = boardStateAnalyzer.getNewGameState(board);
+
+            if (!isOver()) {
+                player2.doStep(board);
+            }
+        }
+
+
+//        ===========================================================================
+
         int numOfPlayers = 2;
         Player[] players = new Player[numOfPlayers];
 
         try {
             chooseTypeGame(players);
             Board.cleanBoard();
-            //todo exit from game if player paste exit
             boolean flag = true;
+            System.out.println(Board.convertToString());
             for (int i = 0; (i < 9) && flag; i++) {
 
                 int whoIsMove = i % numOfPlayers;
@@ -24,7 +53,7 @@ public class Game {
                 } else {
                     System.out.println(" \"O\" move now ");
                 }
-
+                System.out.println("If you want to exit-enter: \"0\"");
                 int winnerFlag = players[whoIsMove].makeAMove(whoIsMove * (-2) + 1);// 0 -> 1; 1 -> -1
                 System.out.println(Board.convertToString());
                 if (winnerFlag != 0) {
@@ -42,6 +71,8 @@ public class Game {
             e.printStackTrace();
         }
     }
+
+    protected abstract boolean isOver();
 
     private static String gameTypeCatch() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -95,5 +126,16 @@ public class Game {
         System.out.println("Do you want to play again? Enter yes or no");
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
+    }
+
+    /**
+     * Created by admin on 15.10.2015.
+     */
+    public static enum GameState {
+        NEW_GAME ,
+        PENDING_GAME,
+        DRAW,
+        PLAYER1_WIN,
+        PLAYER2_WIN,
     }
 }

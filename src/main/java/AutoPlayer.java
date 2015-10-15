@@ -1,4 +1,4 @@
-public class AutoPlayer extends Player {
+public class AutoPlayer implements Player {
     final static int N = 3;
     private int[][] oldField = new int[N][N];
 
@@ -17,6 +17,11 @@ public class AutoPlayer extends Player {
         moveCoordinate = minMaxAlgorithm();
         Board.setCoordinates(moveCoordinate[0], moveCoordinate[1], value);
         return Board.checkWinner(moveCoordinate[0], moveCoordinate[1]);
+    }
+
+    @Override
+    public void doStep(Board board) {
+        // TODO implement putting symbol by min-max algorithm
     }
 
     private int[] minMaxAlgorithm() {

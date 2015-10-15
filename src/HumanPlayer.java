@@ -31,4 +31,6 @@ public class HumanPlayer extends Player {
         Board.setCoordinates(x - 1, y - 1, value);
         return Board.checkWinner(x - 1, y - 1);
     }
+
+
 }

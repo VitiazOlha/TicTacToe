@@ -1,6 +1,6 @@
 public class AutoPlayer extends Player {
     final static int N = 3;
-    final static int DEPTH = 2;
+    final static int DEPTH = 9;
     private int[][] oldField = new int[N][N];
 
     //todo add depth of analiz alhoritm
@@ -33,11 +33,11 @@ public class AutoPlayer extends Player {
     public int makeAMove(int value) {
         int getMoveCounter = copyBoard(value);
         int[] moveCoordinate;
-        if (getMoveCounter < 3) {
+       /* if (getMoveCounter < 3) {
             moveCoordinate = hardCode();
-        } else {
+        } else {*/
             moveCoordinate = minMaxAlgorithm();
-        }
+       // }
 
         Board.setCoordinates(moveCoordinate[0], moveCoordinate[1], value);
         return Board.checkWinner(moveCoordinate[0], moveCoordinate[1]);

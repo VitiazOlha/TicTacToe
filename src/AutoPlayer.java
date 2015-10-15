@@ -3,42 +3,19 @@ public class AutoPlayer extends Player {
     final static int DEPTH = 9;
     private int[][] oldField = new int[N][N];
 
-    //todo add depth of analiz alhoritm
-
-    //todo hardcode for first 3 moves
-    private int[] hardCode() {
-        if (oldField[1][1] == 0) {
-            return new int[]{1, 1};
-        } else if (oldField[0][0] == 0) {
-            return new int[]{0, 0};
-        } else if (oldField[0][2] == 0) {
-            return new int[]{0, 2};
-        } else {
-            return new int[]{2, 0};
-        }
-    }
-
-    private int copyBoard(int value) {
-        int filledCells = 0;
+    private void copyBoard(int value) {
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
                 oldField[x][y] = value * Board.getCoordinates(x, y);
-                if (oldField[x][y] != 0) filledCells++;
             }
         }
-        return filledCells;
     }
 
     @Override
     public int makeAMove(int value) {
-        int getMoveCounter = copyBoard(value);
+        copyBoard(value);
         int[] moveCoordinate;
-       /* if (getMoveCounter < 3) {
-            moveCoordinate = hardCode();
-        } else {*/
-            moveCoordinate = minMaxAlgorithm();
-       // }
-
+        moveCoordinate = minMaxAlgorithm();
         Board.setCoordinates(moveCoordinate[0], moveCoordinate[1], value);
         return Board.checkWinner(moveCoordinate[0], moveCoordinate[1]);
     }

@@ -1,29 +1,58 @@
 public class AutoPlayer extends Player {
     final static int N = 3;
-    final static int DEPTH = 5;
+    final static int DEPTH = 3;
     private int[][] oldField = new int[N][N];
 
     //todo add depth of analiz alhoritm
 
-    private void copyBoard(int value) {
+    //todo hardcode for first 3 moves
+    private int[] hardCode() {
+        if (oldField[1][1] == 0) {
+            return new int[]{1, 1};
+        } else if (oldField[0][0] == 0) {
+            return new int[]{0, 0};
+        } else if (oldField[0][2] == 0) {
+            return new int[]{0, 2};
+        } else {
+            return new int[]{2, 0};
+        }
+    }
+
+    private int copyBoard(int value) {
+        int filledCells = 0;
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
                 oldField[x][y] = value * Board.getCoordinates(x, y);
+                if (oldField[x][y] != 0) filledCells++;
             }
         }
+        return filledCells;
     }
 
     @Override
     public int makeAMove(int value) {
-        copyBoard(value);
+        int getMoveCounter = copyBoard(value);
+        int[] moveCoordinate;
+        if (getMoveCounter < 3) {
+            moveCoordinate = hardCode();
+        } else {
+            moveCoordinate = minMaxAlgorithm();
+        }
+
+        Board.setCoordinates(moveCoordinate[0], moveCoordinate[1], value);
+        return Board.checkWinner(moveCoordinate[0], moveCoordinate[1]);
+    }
+
+    private int[] minMaxAlgorithm() {
         int bestX = -1;
         int bestY = -1;
-        int max = -100;
+        int max = Integer.MAX_VALUE;
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
                 if (oldField[x][y] == 0) {
-                    int newMax = maxMove(x, y, oldField, DEPTH);
-                    if (newMax > max) {
+                    int newMax = minMove(x, y, oldField, DEPTH);
+                    //System.out.println(newMax);
+                    if (newMax < max) {
                         max = newMax;
                         bestX = x;
                         bestY = y;
@@ -31,11 +60,12 @@ public class AutoPlayer extends Player {
                 }
             }
         }
-        Board.setCoordinates(bestX, bestY, value);
-        return Board.checkWinner(bestX, bestY);
+        return new int[]{bestX, bestY};
     }
 
-    private int maxMove(int row, int column, int[][] field, int depth) {
+    private int maxMove(int row, int column, int[][] oldField, int depth) {
+        int[][] field = new int[N][N];
+        copyField(field, oldField);
         field[row][column] = 1;
         int max = Integer.MIN_VALUE;
         if (depth > 0) {
@@ -50,7 +80,7 @@ public class AutoPlayer extends Player {
                         }
                     }
                 }
-                if (max == -100) {
+                if (max == Integer.MIN_VALUE) {
                     return 0;
                 } else {
                     return max;
@@ -63,7 +93,9 @@ public class AutoPlayer extends Player {
         }
     }
 
-    private int minMove(int row, int column, int[][] field, int depth) {
+    private int minMove(int row, int column, int[][] oldField, int depth) {
+        int[][] field = new int[N][N];
+        copyField(field, oldField);
         field[row][column] = -1;
         int min = Integer.MAX_VALUE;
         if (depth > 0) {
@@ -78,7 +110,7 @@ public class AutoPlayer extends Player {
                         }
                     }
                 }
-                if (min == 100) {
+                if (min == Integer.MAX_VALUE) {
                     return 0;
                 } else {
                     return min;
@@ -89,5 +121,14 @@ public class AutoPlayer extends Player {
         } else {
             return 0;
         }
+    }
+
+    private void copyField(int[][] field, int[][] oldField) {
+        for (int x = 0; x < N; x++) {
+            for (int y = 0; y < N; y++) {
+                field[x][y] = oldField[x][y];
+            }
+        }
+
     }
 }

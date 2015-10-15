@@ -1,6 +1,8 @@
+import java.util.Arrays;
+
 public class AutoPlayer extends Player {
     final static int N = 3;
-    final static int DEPTH = 3;
+    final static int DEPTH = 2;
     private int[][] oldField = new int[N][N];
 
     //todo add depth of analiz alhoritm
@@ -46,13 +48,13 @@ public class AutoPlayer extends Player {
     private int[] minMaxAlgorithm() {
         int bestX = -1;
         int bestY = -1;
-        int max = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
                 if (oldField[x][y] == 0) {
-                    int newMax = minMove(x, y, oldField, DEPTH);
-                    //System.out.println(newMax);
-                    if (newMax < max) {
+                    int newMax = maxMove(x, y, oldField, DEPTH);
+                    System.out.println(newMax);
+                    if (newMax >= max) {
                         max = newMax;
                         bestX = x;
                         bestY = y;
@@ -67,20 +69,20 @@ public class AutoPlayer extends Player {
         int[][] field = new int[N][N];
         copyField(field, oldField);
         field[row][column] = 1;
-        int max = Integer.MIN_VALUE;
+        int max = Integer.MAX_VALUE;
         if (depth > 0) {
             if (CheckTheValue.checkCell(row, column, field) == 0) {
                 for (int x = 0; x < N; x++) {
                     for (int y = 0; y < N; y++) {
                         if (field[x][y] == 0) {
                             int newMax = minMove(x, y, field, depth - 1);
-                            if (newMax >= max) {
+                            if (newMax < max) {
                                 max = newMax;
                             }
                         }
                     }
                 }
-                if (max == Integer.MIN_VALUE) {
+                if (max == Integer.MAX_VALUE) {
                     return 0;
                 } else {
                     return max;
@@ -97,20 +99,20 @@ public class AutoPlayer extends Player {
         int[][] field = new int[N][N];
         copyField(field, oldField);
         field[row][column] = -1;
-        int min = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
         if (depth > 0) {
             if (CheckTheValue.checkCell(row, column, field) == 0) {
                 for (int x = 0; x < N; x++) {
                     for (int y = 0; y < N; y++) {
                         if (field[x][y] == 0) {
                             int newMin = maxMove(x, y, field, depth - 1);
-                            if (newMin <= min) {
+                            if (newMin > min) {
                                 min = newMin;
                             }
                         }
                     }
                 }
-                if (min == Integer.MAX_VALUE) {
+                if (min == Integer.MIN_VALUE) {
                     return 0;
                 } else {
                     return min;

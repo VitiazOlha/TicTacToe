@@ -92,9 +92,7 @@ public class AutoPlayer implements Player {
 
     private void copyField(int[][] field, int[][] oldField) {
         for (int x = 0; x < N; x++) {
-            for (int y = 0; y < N; y++) {
-                field[x][y] = oldField[x][y];
-            }
+            field[x] = oldField[x].clone();
         }
     }
 }

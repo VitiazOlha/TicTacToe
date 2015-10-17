@@ -1,7 +1,6 @@
 //todo write tests (Ilya)
 
 public abstract class Game {
-    private static GameFactory gameFactory;
     protected Player player1;
     protected Player player2;
     protected Board board;

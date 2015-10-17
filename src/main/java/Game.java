@@ -17,11 +17,7 @@ public abstract class Game {
     }
 
     protected boolean isOver() {
-        if (currentState == GameState.PENDING_GAME) {
-            return false;
-        } else {
-            return true;
-        }
+        return currentState != GameState.PENDING_GAME;
     }
 
     public void startNewGame() {

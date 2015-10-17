@@ -2,26 +2,22 @@ public class AutoPlayer implements Player {
     final static int N = 3;
     private int[][] oldField = new int[N][N];
 
-    private void copyBoard(int value) {
-        for (int x = 0; x < 3; x++) {
-            for (int y = 0; y < 3; y++) {
-                oldField[x][y] = value * Board.getCoordinates(x, y);
-            }
-        }
-    }
-
     @Override
-    public int makeAMove(int value) {
-        copyBoard(value);
+    public void doStep(Board board, int value) {
+        copyBoard(board, value);
         int[] moveCoordinate;
         moveCoordinate = minMaxAlgorithm();
-        Board.setCoordinates(moveCoordinate[0], moveCoordinate[1], value);
-        return Board.checkWinner(moveCoordinate[0], moveCoordinate[1]);
+        board.setFieldValue(moveCoordinate[0], moveCoordinate[1], value);
+        System.out.print(board.convertToString());
+        // TODO implement putting symbol by min-max algorithm
     }
 
-    @Override
-    public void doStep(Board board) {
-        // TODO implement putting symbol by min-max algorithm
+    private void copyBoard(Board board, int value) {
+        for (int x = 0; x < N; x++) {
+            for (int y = 0; y < N; y++) {
+                this.oldField[x][y] = value * board.getFieldValue(x, y);
+            }
+        }
     }
 
     private int[] minMaxAlgorithm() {
@@ -101,6 +97,5 @@ public class AutoPlayer implements Player {
                 field[x][y] = oldField[x][y];
             }
         }
-
     }
 }

@@ -3,53 +3,74 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="284.5" y="0.0">Player</node>
-    <node x="278.0" y="189.5">HumanPlayer</node>
-    <node x="268.51666666666665" y="403.0">Game</node>
-    <node x="-74.69706840390882" y="401.5960912052117">Board</node>
-    <node x="0.0" y="105.0">AutoPlayer</node>
+    <node x="1376.0" y="322.0">PvpGame</node>
+    <node x="1189.2752442996743" y="619.5684039087948">GameFactory</node>
+    <node x="544.0" y="917.0">GameType</node>
+    <node x="754.0" y="495.0">Board</node>
+    <node x="314.0" y="917.0">CheckTheValue</node>
+    <node x="0.0" y="917.0">ConsoleUserInputProvider</node>
+    <node x="201.25" y="495.0">Player</node>
+    <node x="1191.742671009772" y="526.5635179153093">BoardStateAnalyzer</node>
+    <node x="309.0" y="322.0">CvpGame</node>
+    <node x="265.0" y="671.5">HumanPlayer</node>
+    <node x="952.0" y="322.0">PvcGame</node>
+    <node x="733.0" y="299.0">Game.GameState</node>
+    <node x="0.0" y="334.5">CvcGame</node>
+    <node x="1193.617263843648" y="712.5732899022802">GameRunner</node>
+    <node x="587.0" y="0.0">Game</node>
+    <node x="0.0" y="624.0">AutoPlayer</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="HumanPlayer" target="Player">
-      <point x="0.0" y="-39.5" />
-      <point x="0.0" y="27.5" />
+    <edge source="PvpGame" target="Game">
+      <point x="0.0" y="-52.5" />
+      <point x="1578.0" y="269.0" />
+      <point x="1028.9" y="269.0" />
+      <point x="196.39999999999998" y="124.5" />
     </edge>
-    <edge source="Game" target="HumanPlayer">
-      <point x="0.0" y="-63.5" />
-      <point x="387.51666666666665" y="378.0" />
-      <point x="389.5" y="378.0" />
-      <point x="0.0" y="39.5" />
+    <edge source="HumanPlayer" target="Player">
+      <point x="0.0" y="-76.5" />
+      <point x="487.0" y="599.0" />
+      <point x="356.5" y="599.0" />
+      <point x="51.75" y="39.5" />
+    </edge>
+    <edge source="CvcGame" target="Game">
+      <point x="0.0" y="-40.0" />
+      <point x="144.5" y="269.0" />
+      <point x="636.1" y="269.0" />
+      <point x="-196.39999999999998" y="124.5" />
     </edge>
     <edge source="AutoPlayer" target="Player">
       <point x="0.0" y="-124.0" />
-      <point x="129.0" y="80.0" />
-      <point x="319.5" y="80.0" />
-      <point x="-70.0" y="27.5" />
+      <point x="122.5" y="599.0" />
+      <point x="253.0" y="599.0" />
+      <point x="-51.75" y="39.5" />
     </edge>
-    <edge source="Game" target="Player">
-      <point x="79.33333333333331" y="-63.5" />
-      <point x="466.84999999999997" y="378.0" />
-      <point x="511.5" y="378.0" />
-      <point x="511.5" y="80.0" />
-      <point x="459.5" y="80.0" />
-      <point x="70.0" y="27.5" />
+    <edge source="PvcGame" target="Game">
+      <point x="0.0" y="-52.5" />
+      <point x="1154.0" y="279.0" />
+      <point x="930.6999999999999" y="279.0" />
+      <point x="98.19999999999993" y="124.5" />
     </edge>
-    <edge source="Game" target="AutoPlayer">
-      <point x="-79.33333333333331" y="-63.5" />
-      <point x="308.18333333333334" y="378.0" />
-      <point x="129.0" y="378.0" />
-      <point x="0.0" y="124.0" />
+    <edge source="CvpGame" target="Game">
+      <point x="0.0" y="-52.5" />
+      <point x="511.0" y="279.0" />
+      <point x="734.3" y="279.0" />
+      <point x="-98.20000000000005" y="124.5" />
+    </edge>
+    <edge source="Game.GameState" target="Game">
+      <point x="0.0" y="-75.5" />
+      <point x="0.0" y="124.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7496947496947497" x="270.5" y="399.5" />
+  <settings layout="Hierarchic Group" zoom="0.5455555555555556" x="890.0" y="547.5" />
   <SelectedNodes />
   <Categories>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
-    <Category>Constructors</Category>
     <Category>Fields</Category>
     <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

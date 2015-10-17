@@ -20,12 +20,12 @@ public class AutoPlayer implements Player {
     public void doStep(Board board, int value) {
         copyBoard(board, value);
         int[] moveCoordinate;
-        moveCoordinate = minMaxAlgorithm();
+        moveCoordinate = minMaxStart();
         board.setFieldValue(moveCoordinate[0], moveCoordinate[1], value);
         System.out.print(board.convertToString());
     }
 
-    private int[] minMaxAlgorithm() {
+    private int[] minMaxStart() {
         int bestX = -1;
         int bestY = -1;
         int max = Integer.MIN_VALUE;

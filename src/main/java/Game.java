@@ -1,13 +1,12 @@
 //todo write tests (Ilya)
 
 public abstract class Game {
-    private BoardStateAnalyzer boardStateAnalyzer;
-    private GameState currentState;
-
     private static GameFactory gameFactory;
     protected Player player1;
     protected Player player2;
     protected Board board;
+    private BoardStateAnalyzer boardStateAnalyzer;
+    private GameState currentState;
 
     public Game(Player player1, Player player2, BoardStateAnalyzer boardStateAnalyzer) {
         this.player1 = player1;

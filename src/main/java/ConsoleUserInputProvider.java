@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * TODO Implement retrieving commands from console
- */
 public class ConsoleUserInputProvider implements AutoCloseable {
     private Scanner scanner;
 
@@ -45,7 +42,6 @@ public class ConsoleUserInputProvider implements AutoCloseable {
         }
     }
 
-
     public boolean restartGameCommandSend() {
         System.out.println("Do you want to play again? Enter yes or no");
         return scanner.nextLine()
@@ -53,6 +49,7 @@ public class ConsoleUserInputProvider implements AutoCloseable {
                 .equals("yes");
     }
 
+    //todo exit command
     public boolean exitCommandSend() {
         return false;
     }

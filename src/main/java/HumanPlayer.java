@@ -13,9 +13,6 @@ public class HumanPlayer implements Player {
             y = userInputProvider.inputCoordinatesForNextHumanStep('Y');
         } while (board.isPossibleToMove(x, y));
         board.setFieldValue(x - 1, y - 1, value);
-        System.out.print(board.convertToString());
-        // TODO impolement putting symbol by keyboard input
+        System.out.print(board.convertToString());\
     }
-
-
 }

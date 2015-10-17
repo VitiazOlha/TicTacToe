@@ -24,7 +24,7 @@ public class CheckTheValue {
         for (int i = 0; i < N; i++) {
             sum += field[row][i];
         }
-        if (Math.abs(sum) == 3) {
+        if (Math.abs(sum) == N) {
             return sum;
         } else {
             return 0;
@@ -36,7 +36,7 @@ public class CheckTheValue {
         for (int i = 0; i < N; i++) {
             sum += field[i][column];
         }
-        if (Math.abs(sum) == 3) {
+        if (Math.abs(sum) == N) {
             return sum;
         } else {
             return 0;
@@ -48,7 +48,7 @@ public class CheckTheValue {
         for (int i = 0; i < N; i++) {
             sum += field[i][i];
         }
-        if (Math.abs(sum) == 3) {
+        if (Math.abs(sum) == N) {
             return sum;
         } else {
             return 0;
@@ -60,7 +60,7 @@ public class CheckTheValue {
         for (int i = 0; i < N; i++) {
             sum += field[i][N - 1 - i];
         }
-        if (Math.abs(sum) == 3) {
+        if (Math.abs(sum) == N) {
             return sum;
         } else {
             return 0;

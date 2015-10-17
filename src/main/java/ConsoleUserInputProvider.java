@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class ConsoleUserInputProvider implements AutoCloseable {
     private Scanner scanner;
+    final static int N = 3;
 
     public ConsoleUserInputProvider() {
         this.scanner = new Scanner(System.in);
@@ -25,10 +26,10 @@ public class ConsoleUserInputProvider implements AutoCloseable {
 
     public int inputCoordinatesForNextHumanStep(char nameCoordinate) {
         while (true) {
-            System.out.print("Enter " + nameCoordinate + " (1..3): ");
+            System.out.print("Enter " + nameCoordinate + " (1.."+ N +"): ");
             try {
                 int coordinate = scanner.nextInt();
-                if ((coordinate > 0) && (coordinate <= 3)) {
+                if ((coordinate > 0) && (coordinate <= N)) {
                     return coordinate;
                 } else if (coordinate == 0) {
                     System.exit(0);

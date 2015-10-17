@@ -1,8 +1,9 @@
 public class Board {
     private int[][] field;
+    final static int N = 3;
 
     public Board() {
-        this.field = new int[3][3];
+        this.field = new int[N][N];
     }
 
     public static char makeSymbol(int value) {

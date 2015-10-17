@@ -38,7 +38,7 @@ public abstract class Game {
         System.out.println("Game over with status: " + currentState);
     }
 
-    public static enum GameState {
+    public enum GameState {
         PENDING_GAME,
         DRAW,
         PLAYER1_WIN,

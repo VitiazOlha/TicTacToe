@@ -9,7 +9,6 @@ public class AutoPlayer implements Player {
         moveCoordinate = minMaxAlgorithm();
         board.setFieldValue(moveCoordinate[0], moveCoordinate[1], value);
         System.out.print(board.convertToString());
-        // TODO implement putting symbol by min-max algorithm
     }
 
     private void copyBoard(Board board, int value) {

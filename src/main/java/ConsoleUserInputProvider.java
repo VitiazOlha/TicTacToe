@@ -44,9 +44,8 @@ public class ConsoleUserInputProvider implements AutoCloseable {
 
     public boolean restartGameCommandSend() {
         System.out.println("Do you want to play again? Enter yes or no");
-        return scanner.nextLine()
-                .toLowerCase()
-                .equals("yes");
+        String answer =  scanner.nextLine();
+        return answer.toLowerCase().equals("yes");
     }
 
     //todo exit command

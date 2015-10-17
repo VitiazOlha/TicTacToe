@@ -3,68 +3,70 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1376.0" y="322.0">PvpGame</node>
-    <node x="1189.2752442996743" y="619.5684039087948">GameFactory</node>
-    <node x="544.0" y="917.0">GameType</node>
-    <node x="754.0" y="495.0">Board</node>
-    <node x="314.0" y="917.0">CheckTheValue</node>
-    <node x="0.0" y="917.0">ConsoleUserInputProvider</node>
-    <node x="201.25" y="495.0">Player</node>
-    <node x="1191.742671009772" y="526.5635179153093">BoardStateAnalyzer</node>
-    <node x="309.0" y="322.0">CvpGame</node>
-    <node x="265.0" y="671.5">HumanPlayer</node>
-    <node x="952.0" y="322.0">PvcGame</node>
-    <node x="733.0" y="299.0">Game.GameState</node>
-    <node x="0.0" y="334.5">CvcGame</node>
-    <node x="1193.617263843648" y="712.5732899022802">GameRunner</node>
-    <node x="587.0" y="0.0">Game</node>
-    <node x="0.0" y="624.0">AutoPlayer</node>
+    <node x="519.0" y="322.5">PvpGame</node>
+    <node x="1122.3224755700326" y="720.6905537459285">GameFactory</node>
+    <node x="520.0" y="845.0">GameType</node>
+    <node x="0.0" y="845.0">Board</node>
+    <node x="290.0" y="845.0">CheckTheValue</node>
+    <node x="694.0" y="471.0">ConsoleUserInputProvider</node>
+    <node x="174.25" y="471.0">Player</node>
+    <node x="1122.6384364820847" y="601.0521172638435">BoardStateAnalyzer</node>
+    <node x="923.0" y="322.5">CvpGame</node>
+    <node x="245.0" y="635.5">HumanPlayer</node>
+    <node x="1327.0" y="322.5">PvcGame</node>
+    <node x="289.0" y="299.0">Game.GameState</node>
+    <node x="0.0" y="335.0">CvcGame</node>
+    <node x="1123.925081433225" y="477.61563517915295">GameRunner</node>
+    <node x="511.5" y="0.0">Game</node>
+    <node x="0.0" y="576.0">AutoPlayer</node>
   </nodes>
   <notes />
   <edges>
     <edge source="PvpGame" target="Game">
-      <point x="0.0" y="-52.5" />
-      <point x="1578.0" y="269.0" />
-      <point x="1028.9" y="269.0" />
-      <point x="196.39999999999998" y="124.5" />
-    </edge>
-    <edge source="HumanPlayer" target="Player">
-      <point x="0.0" y="-76.5" />
-      <point x="487.0" y="599.0" />
-      <point x="356.5" y="599.0" />
-      <point x="51.75" y="39.5" />
-    </edge>
-    <edge source="CvcGame" target="Game">
       <point x="0.0" y="-40.0" />
-      <point x="144.5" y="269.0" />
-      <point x="636.1" y="269.0" />
-      <point x="-196.39999999999998" y="124.5" />
-    </edge>
-    <edge source="AutoPlayer" target="Player">
-      <point x="0.0" y="-124.0" />
-      <point x="122.5" y="599.0" />
-      <point x="253.0" y="599.0" />
-      <point x="-51.75" y="39.5" />
-    </edge>
-    <edge source="PvcGame" target="Game">
-      <point x="0.0" y="-52.5" />
-      <point x="1154.0" y="279.0" />
-      <point x="930.6999999999999" y="279.0" />
-      <point x="98.19999999999993" y="124.5" />
-    </edge>
-    <edge source="CvpGame" target="Game">
-      <point x="0.0" y="-52.5" />
-      <point x="511.0" y="279.0" />
-      <point x="734.3" y="279.0" />
-      <point x="-98.20000000000005" y="124.5" />
-    </edge>
-    <edge source="Game.GameState" target="Game">
-      <point x="0.0" y="-75.5" />
       <point x="0.0" y="124.5" />
     </edge>
+    <edge source="HumanPlayer" target="Player">
+      <point x="0.0" y="-52.5" />
+      <point x="447.0" y="551.0" />
+      <point x="332.5" y="551.0" />
+      <point x="52.75" y="27.5" />
+    </edge>
+    <edge source="CvcGame" target="Game">
+      <point x="0.0" y="-27.5" />
+      <point x="134.5" y="269.0" />
+      <point x="551.4" y="269.0" />
+      <point x="-159.60000000000002" y="124.5" />
+    </edge>
+    <edge source="AutoPlayer" target="Player">
+      <point x="0.0" y="-112.0" />
+      <point x="112.5" y="551.0" />
+      <point x="227.0" y="551.0" />
+      <point x="-52.75" y="27.5" />
+    </edge>
+    <edge source="PvcGame" target="Game">
+      <point x="0.0" y="-40.0" />
+      <point x="1519.0" y="269.0" />
+      <point x="870.6000000000001" y="269.0" />
+      <point x="159.60000000000014" y="124.5" />
+    </edge>
+    <edge source="CvpGame" target="Game">
+      <point x="0.0" y="-40.0" />
+      <point x="1115.0" y="279.0" />
+      <point x="790.8000000000001" y="279.0" />
+      <point x="79.80000000000007" y="124.5" />
+    </edge>
+    <edge source="Game.GameState" target="Game">
+      <point x="0.0" y="-63.5" />
+      <point x="394.0" y="279.0" />
+      <point x="631.2" y="279.0" />
+      <point x="-79.79999999999995" y="124.5" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5455555555555556" x="890.0" y="547.5" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.5265866209262435" x="855.5" y="573.0" />
+  <SelectedNodes>
+    <node>GameFactory</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Inner Classes</Category>

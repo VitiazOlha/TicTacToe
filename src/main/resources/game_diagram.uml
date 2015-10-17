@@ -3,69 +3,205 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="519.0" y="322.5">PvpGame</node>
-    <node x="1122.3224755700326" y="720.6905537459285">GameFactory</node>
-    <node x="520.0" y="845.0">GameType</node>
-    <node x="0.0" y="845.0">Board</node>
-    <node x="290.0" y="845.0">CheckTheValue</node>
-    <node x="694.0" y="471.0">ConsoleUserInputProvider</node>
-    <node x="174.25" y="471.0">Player</node>
-    <node x="1122.6384364820847" y="601.0521172638435">BoardStateAnalyzer</node>
-    <node x="923.0" y="322.5">CvpGame</node>
-    <node x="245.0" y="635.5">HumanPlayer</node>
-    <node x="1327.0" y="322.5">PvcGame</node>
-    <node x="289.0" y="299.0">Game.GameState</node>
-    <node x="0.0" y="335.0">CvcGame</node>
-    <node x="1123.925081433225" y="477.61563517915295">GameRunner</node>
-    <node x="511.5" y="0.0">Game</node>
-    <node x="0.0" y="576.0">AutoPlayer</node>
+    <node x="479.7500000000001" y="536.0">PvpGame</node>
+    <node x="789.2500000000002" y="749.0">GameFactory</node>
+    <node x="205.0" y="1018.5">GameType</node>
+    <node x="288.95860606060637" y="676.0">Board</node>
+    <node x="-32.5" y="1013.5">CheckTheValue</node>
+    <node x="755.2286060606064" y="0.0">ConsoleUserInputProvider</node>
+    <node x="1493.9786060606064" y="73.5">Player</node>
+    <node x="140.7500000000001" y="548.5">BoardStateAnalyzer</node>
+    <node x="1287.7500000000002" y="536.0">CvpGame</node>
+    <node x="887.0836060606064" y="321.5">HumanPlayer</node>
+    <node x="883.7500000000002" y="536.0">PvcGame</node>
+    <node x="0.0" y="713.0">Game.GameState</node>
+    <node x="1691.7500000000002" y="548.5">CvcGame</node>
+    <node x="387.2500000000001" y="346.5">GameRunner</node>
+    <node x="389.58360606060637" y="957.0">Game</node>
+    <node x="1564.5000000000002" y="262.0">AutoPlayer</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="PvpGame" target="Game">
-      <point x="0.0" y="-40.0" />
-      <point x="0.0" y="124.5" />
+    <edge source="GameFactory" target="BoardStateAnalyzer">
+      <point x="-150.0" y="-27.5" />
+      <point x="826.7500000000002" y="646.0" />
+      <point x="380.0000000000001" y="646.0" />
+      <point x="79.75" y="27.5" />
     </edge>
-    <edge source="HumanPlayer" target="Player">
-      <point x="0.0" y="-52.5" />
-      <point x="447.0" y="551.0" />
-      <point x="332.5" y="551.0" />
-      <point x="52.75" y="27.5" />
-    </edge>
-    <edge source="CvcGame" target="Game">
-      <point x="0.0" y="-27.5" />
-      <point x="134.5" y="269.0" />
-      <point x="551.4" y="269.0" />
-      <point x="-159.60000000000002" y="124.5" />
+    <edge source="PvcGame" target="Game">
+      <point x="96.0" y="40.0" />
+      <point x="1171.7500000000002" y="636.0" />
+      <point x="1174.7500000000002" y="636.0" />
+      <point x="1174.7500000000002" y="907.0" />
+      <point x="661.6290606060609" y="907.0" />
+      <point x="72.5454545454545" y="-124.5" />
     </edge>
     <edge source="AutoPlayer" target="Player">
       <point x="0.0" y="-112.0" />
-      <point x="112.5" y="551.0" />
-      <point x="227.0" y="551.0" />
-      <point x="-52.75" y="27.5" />
+      <point x="1677.0000000000002" y="242.0" />
+      <point x="1599.4786060606064" y="242.0" />
+      <point x="0.0" y="27.5" />
     </edge>
-    <edge source="PvcGame" target="Game">
-      <point x="0.0" y="-40.0" />
-      <point x="1519.0" y="269.0" />
-      <point x="870.6000000000001" y="269.0" />
-      <point x="159.60000000000014" y="124.5" />
+    <edge source="GameFactory" target="CvpGame">
+      <point x="75.0" y="-27.5" />
+      <point x="1051.7500000000002" y="646.0" />
+      <point x="1383.7500000000002" y="646.0" />
+      <point x="-96.0" y="40.0" />
     </edge>
     <edge source="CvpGame" target="Game">
-      <point x="0.0" y="-40.0" />
-      <point x="1115.0" y="279.0" />
-      <point x="790.8000000000001" y="279.0" />
-      <point x="79.80000000000007" y="124.5" />
+      <point x="96.0" y="40.0" />
+      <point x="1575.7500000000002" y="917.0" />
+      <point x="697.9017878787882" y="917.0" />
+      <point x="108.81818181818187" y="-124.5" />
+    </edge>
+    <edge source="HumanPlayer" target="ConsoleUserInputProvider">
+      <point x="-101.0" y="-52.5" />
+      <point x="988.0836060606064" y="242.0" />
+      <point x="957.5286060606064" y="242.0" />
+      <point x="57.80000000000007" y="101.0" />
+    </edge>
+    <edge source="PvpGame" target="ConsoleUserInputProvider">
+      <point x="-96.0" y="-40.0" />
+      <point x="575.7500000000001" y="232.0" />
+      <point x="841.9286060606064" y="232.0" />
+      <point x="-57.799999999999955" y="101.0" />
+    </edge>
+    <edge source="CvcGame" target="AutoPlayer">
+      <point x="0.0" y="-27.5" />
+      <point x="1826.2500000000002" y="516.0" />
+      <point x="1752.0000000000002" y="516.0" />
+      <point x="75.0" y="112.0" />
+    </edge>
+    <edge source="PvcGame" target="AutoPlayer">
+      <point x="128.0" y="-40.0" />
+      <point x="1203.7500000000002" y="516.0" />
+      <point x="1602.0000000000002" y="516.0" />
+      <point x="-75.0" y="112.0" />
+    </edge>
+    <edge source="CvpGame" target="AutoPlayer">
+      <point x="128.0" y="-40.0" />
+      <point x="1607.7500000000002" y="516.0" />
+      <point x="1677.0000000000002" y="516.0" />
+      <point x="0.0" y="112.0" />
+    </edge>
+    <edge source="HumanPlayer" target="Player">
+      <point x="101.0" y="-52.5" />
+      <point x="1190.0836060606064" y="242.0" />
+      <point x="1529.145272727273" y="242.0" />
+      <point x="-70.33333333333326" y="27.5" />
+    </edge>
+    <edge source="GameFactory" target="CvcGame">
+      <point x="150.0" y="-27.5" />
+      <point x="1126.7500000000002" y="656.0" />
+      <point x="1759.0000000000002" y="656.0" />
+      <point x="-67.25" y="27.5" />
+    </edge>
+    <edge source="Game" target="Player">
+      <point x="181.36363636363637" y="-124.5" />
+      <point x="770.4472424242427" y="937.0" />
+      <point x="1971.2500000000002" y="937.0" />
+      <point x="1971.2500000000002" y="232.0" />
+      <point x="1669.8119393939396" y="232.0" />
+      <point x="70.33333333333326" y="27.5" />
+    </edge>
+    <edge source="Game" target="Board">
+      <point x="-36.27272727272725" y="-124.5" />
+      <point x="552.8108787878791" y="897.0" />
+      <point x="472.70860606060637" y="897.0" />
+      <point x="61.25" y="100.5" />
     </edge>
     <edge source="Game.GameState" target="Game">
-      <point x="0.0" y="-63.5" />
-      <point x="394.0" y="279.0" />
-      <point x="631.2" y="279.0" />
-      <point x="-79.79999999999995" y="124.5" />
+      <point x="52.5" y="63.5" />
+      <point x="157.5" y="927.0" />
+      <point x="443.99269696969736" y="927.0" />
+      <point x="-145.090909090909" y="-124.5" />
+    </edge>
+    <edge source="GameFactory" target="PvcGame">
+      <point x="0.0" y="-27.5" />
+      <point x="976.7500000000002" y="656.0" />
+      <point x="979.7500000000002" y="656.0" />
+      <point x="-96.0" y="40.0" />
+    </edge>
+    <edge source="GameRunner" target="ConsoleUserInputProvider">
+      <point x="0.0" y="-27.5" />
+      <point x="476.2500000000001" y="222.0" />
+      <point x="784.1286060606063" y="222.0" />
+      <point x="-115.60000000000002" y="101.0" />
+    </edge>
+    <edge source="PvpGame" target="Game">
+      <point x="-96.0" y="40.0" />
+      <point x="575.7500000000001" y="656.0" />
+      <point x="604.4786060606064" y="656.0" />
+      <point x="604.4786060606064" y="937.0" />
+      <point x="589.0836060606064" y="937.0" />
+      <point x="0.0" y="-124.5" />
+    </edge>
+    <edge source="CvpGame" target="ConsoleUserInputProvider">
+      <point x="0.0" y="-40.0" />
+      <point x="1479.7500000000002" y="232.0" />
+      <point x="1015.3286060606064" y="232.0" />
+      <point x="115.60000000000002" y="101.0" />
+    </edge>
+    <edge source="PvcGame" target="ConsoleUserInputProvider">
+      <point x="-128.0" y="-40.0" />
+      <point x="947.7500000000002" y="506.0" />
+      <point x="835.2145454545457" y="506.0" />
+      <point x="835.2145454545457" y="242.0" />
+      <point x="899.7286060606064" y="242.0" />
+      <point x="0.0" y="101.0" />
+    </edge>
+    <edge source="CvcGame" target="Game">
+      <point x="67.25" y="27.5" />
+      <point x="1893.5000000000002" y="927.0" />
+      <point x="734.1745151515155" y="927.0" />
+      <point x="145.09090909090912" y="-124.5" />
+    </edge>
+    <edge source="GameFactory" target="PvpGame">
+      <point x="-75.0" y="-27.5" />
+      <point x="901.7500000000002" y="636.0" />
+      <point x="767.7500000000001" y="636.0" />
+      <point x="96.0" y="40.0" />
+    </edge>
+    <edge source="PvpGame" target="HumanPlayer">
+      <point x="96.0" y="-40.0" />
+      <point x="767.7500000000001" y="516.0" />
+      <point x="954.4169393939396" y="516.0" />
+      <point x="-134.66666666666663" y="52.5" />
+    </edge>
+    <edge source="PvcGame" target="HumanPlayer">
+      <point x="0.0" y="-40.0" />
+      <point x="1075.7500000000002" y="516.0" />
+      <point x="1089.0836060606064" y="516.0" />
+      <point x="0.0" y="52.5" />
+    </edge>
+    <edge source="Game" target="GameFactory">
+      <point x="36.27272727272725" y="-124.5" />
+      <point x="625.3563333333336" y="897.0" />
+      <point x="976.7500000000002" y="897.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="CvpGame" target="HumanPlayer">
+      <point x="-128.0" y="-40.0" />
+      <point x="1351.7500000000002" y="506.0" />
+      <point x="1223.7502727272729" y="506.0" />
+      <point x="134.66666666666652" y="52.5" />
+    </edge>
+    <edge source="Game" target="BoardStateAnalyzer">
+      <point x="-108.81818181818176" y="-124.5" />
+      <point x="480.2654242424246" y="917.0" />
+      <point x="220.5000000000001" y="917.0" />
+      <point x="-79.75" y="27.5" />
+    </edge>
+    <edge source="Game" target="Game.GameState">
+      <point x="-181.36363636363632" y="-124.5" />
+      <point x="407.7199696969701" y="937.0" />
+      <point x="52.5" y="937.0" />
+      <point x="-52.5" y="63.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5265866209262435" x="855.5" y="573.0" />
+  <settings layout="Hierarchic Group" zoom="0.40000000000000013" x="986.0" y="713.5000000000001" />
   <SelectedNodes>
-    <node>GameFactory</node>
+    <node>GameType</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>

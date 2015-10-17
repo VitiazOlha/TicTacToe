@@ -2,13 +2,10 @@ public class AutoPlayer implements Player {
     final static int N = 3;
     private int[][] oldField = new int[N][N];
 
-    @Override
-    public void doStep(Board board, int value) {
-        copyBoard(board, value);
-        int[] moveCoordinate;
-        moveCoordinate = minMaxAlgorithm();
-        board.setFieldValue(moveCoordinate[0], moveCoordinate[1], value);
-        System.out.print(board.convertToString());
+    private void copyField(int[][] field, int[][] oldField) {
+        for (int x = 0; x < N; x++) {
+            field[x] = oldField[x].clone();
+        }
     }
 
     private void copyBoard(Board board, int value) {
@@ -19,6 +16,15 @@ public class AutoPlayer implements Player {
         }
     }
 
+    @Override
+    public void doStep(Board board, int value) {
+        copyBoard(board, value);
+        int[] moveCoordinate;
+        moveCoordinate = minMaxAlgorithm();
+        board.setFieldValue(moveCoordinate[0], moveCoordinate[1], value);
+        System.out.print(board.convertToString());
+    }
+
     private int[] minMaxAlgorithm() {
         int bestX = -1;
         int bestY = -1;
@@ -26,7 +32,7 @@ public class AutoPlayer implements Player {
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
                 if (oldField[x][y] == 0) {
-                    int newMax = maxMove(x, y, oldField);
+                    int newMax = minMax(x, y, oldField, 1);
                     if (newMax >= max) {
                         max = newMax;
                         bestX = x;
@@ -38,61 +44,29 @@ public class AutoPlayer implements Player {
         return new int[]{bestX, bestY};
     }
 
-    private int maxMove(int row, int column, int[][] oldField) {
+    private int minMax(int row, int column, int[][] oldField,int value) {
         int[][] field = new int[N][N];
         copyField(field, oldField);
-        field[row][column] = 1;
-        int max = Integer.MAX_VALUE;
+        field[row][column] = value;
+        int score = Integer.MAX_VALUE * value;
         if (CheckTheValue.checkCell(row, column, field) == 0) {
             for (int x = 0; x < N; x++) {
                 for (int y = 0; y < N; y++) {
                     if (field[x][y] == 0) {
-                        int newMax = minMove(x, y, field);
-                        if (newMax < max) {
-                            max = newMax;
+                        int newScore = minMax(x, y, field, -1 * value);
+                        if (newScore * value < score * value) {
+                            score = newScore;
                         }
                     }
                 }
             }
-            if (max == Integer.MAX_VALUE) {
+            if (score == Integer.MAX_VALUE * value) {
                 return 0;
             } else {
-                return max;
+                return score;
             }
         } else {
-            return 1;
-        }
-    }
-
-    private int minMove(int row, int column, int[][] oldField) {
-        int[][] field = new int[N][N];
-        copyField(field, oldField);
-        field[row][column] = -1;
-        int min = Integer.MIN_VALUE;
-        if (CheckTheValue.checkCell(row, column, field) == 0) {
-            for (int x = 0; x < N; x++) {
-                for (int y = 0; y < N; y++) {
-                    if (field[x][y] == 0) {
-                        int newMin = maxMove(x, y, field);
-                        if (newMin > min) {
-                            min = newMin;
-                        }
-                    }
-                }
-            }
-            if (min == Integer.MIN_VALUE) {
-                return 0;
-            } else {
-                return min;
-            }
-        } else {
-            return -1;
-        }
-    }
-
-    private void copyField(int[][] field, int[][] oldField) {
-        for (int x = 0; x < N; x++) {
-            field[x] = oldField[x].clone();
+            return value;
         }
     }
 }

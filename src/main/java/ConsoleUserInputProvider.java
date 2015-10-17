@@ -38,7 +38,7 @@ public class ConsoleUserInputProvider implements AutoCloseable {
                     System.out.println("Invalid value");
                 }
             } catch (Exception e) {
-                System.out.println("You can use only digits from 1 to 3.");
+                System.out.println("You can use only digits from 1 to "+ N + ".");
             }
         }
     }

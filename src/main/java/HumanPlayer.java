@@ -11,7 +11,7 @@ public class HumanPlayer implements Player {
         do {
             x = userInputProvider.inputCoordinatesForNextHumanStep('X');
             y = userInputProvider.inputCoordinatesForNextHumanStep('Y');
-        } while (board.isPossibleToMove(x, y));
+        } while (!board.isPossibleToMove(x, y));
         board.setFieldValue(x - 1, y - 1, value);
         System.out.print(board.convertToString());
     }

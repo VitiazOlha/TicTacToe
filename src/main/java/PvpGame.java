@@ -1,5 +1,5 @@
 public class PvpGame extends Game {
-    public PvpGame(BoardStateAnalyzer boardStateAnalyzer) {
-        super(new HumanPlayer(), new HumanPlayer(), boardStateAnalyzer);
+    public PvpGame(ConsoleUserInputProvider userInputProvider, BoardStateAnalyzer boardStateAnalyzer) {
+        super(new HumanPlayer(userInputProvider), new HumanPlayer(userInputProvider), boardStateAnalyzer);
     }
 }

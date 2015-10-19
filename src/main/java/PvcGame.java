@@ -1,5 +1,5 @@
 public class PvcGame extends Game {
-    public PvcGame(BoardStateAnalyzer boardStateAnalyzer) {
-        super(new HumanPlayer(), new AutoPlayer(), boardStateAnalyzer);
+    public PvcGame(ConsoleUserInputProvider userInputProvider, BoardStateAnalyzer boardStateAnalyzer) {
+        super(new HumanPlayer(userInputProvider), new AutoPlayer(), boardStateAnalyzer);
     }
 }

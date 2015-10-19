@@ -1,8 +1,8 @@
 public class HumanPlayer implements Player {
     private ConsoleUserInputProvider userInputProvider;
 
-    public HumanPlayer() {
-        this.userInputProvider = new ConsoleUserInputProvider();
+    public HumanPlayer(ConsoleUserInputProvider userInputProvider) {
+        this.userInputProvider = userInputProvider;
     }
 
     @Override

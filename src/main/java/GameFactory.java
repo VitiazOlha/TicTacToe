@@ -5,11 +5,11 @@ public class GameFactory {
         GameType type = userInputProvider.getGameType();
         switch (type) {
             case PVP:
-                return new PvpGame(boardStateAnalyzer);
+                return new PvpGame(userInputProvider, boardStateAnalyzer);
             case PVC:
-                return new PvcGame(boardStateAnalyzer);
+                return new PvcGame(userInputProvider, boardStateAnalyzer);
             case CVP:
-                return new CvpGame(boardStateAnalyzer);
+                return new CvpGame(userInputProvider, boardStateAnalyzer);
             case CVC:
             default:
                 return new CvcGame(boardStateAnalyzer);

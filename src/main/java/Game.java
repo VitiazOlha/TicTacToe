@@ -21,11 +21,11 @@ public abstract class Game {
 
     public void startNewGame() {
         while (!isOver()) {
-            System.out.println("Goes the player1 : ");
+            System.out.println("Goes the player1 \"X\" : ");
             player1.doStep(board, 1);
             currentState = boardStateAnalyzer.getNewGameState(board);
             if (!isOver()) {
-                System.out.println("Goes the player2 : ");
+                System.out.println("Goes the player2 \"O\" : ");
                 player2.doStep(board, -1);
                 currentState = boardStateAnalyzer.getNewGameState(board);
             }

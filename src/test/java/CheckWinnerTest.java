@@ -1,9 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by admin on 13.10.2015.
- */
 public class CheckWinnerTest {
 
     @Test(timeout = 100)

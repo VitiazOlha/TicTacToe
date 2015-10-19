@@ -1,38 +1,24 @@
 import org.junit.Assert;
 import org.junit.Test;
-import sun.invoke.empty.Empty;
 
-import static org.junit.Assert.*;
 
-/*
- * Created by admin on 15.10.2015.
- */
 public class MakeSymbolTest {
 
     @Test(timeout = 100)
     public void testMakeSymbol() throws Exception {
-
         int value = -1;
         Assert.assertEquals('O',Board.makeSymbol(value));
 
-        int value1 = 1;
-        Assert.assertEquals('X', Board.makeSymbol(value1));
+        value = 1;
+        Assert.assertEquals('X', Board.makeSymbol(value));
 
-        int value2 = 5;
-        Assert.assertEquals(' ', Board.makeSymbol(value2));
+        value = 0;
+        Assert.assertEquals(' ', Board.makeSymbol(value));
 
-        int value3 = -99;
-        Assert.assertEquals(' ', Board.makeSymbol(value3));
+        value = Integer.MAX_VALUE;
+        Assert.assertEquals(' ', Board.makeSymbol(value));
 
-        int value4 = Integer.parseInt(null);
-        Assert.assertEquals(' ', Board.makeSymbol(value4));
-
-        int value5 = (int) -99.6;
-        Assert.assertEquals(' ', Board.makeSymbol(value5));
-
-
-
-
-
+        value = Integer.MIN_VALUE;
+        Assert.assertEquals(' ', Board.makeSymbol(value));
     }
 }

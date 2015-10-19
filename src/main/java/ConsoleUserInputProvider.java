@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class ConsoleUserInputProvider implements AutoCloseable {
-    private Scanner scanner;
     final static int N = 3;
+    private Scanner scanner;
 
     public ConsoleUserInputProvider() {
         this.scanner = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class ConsoleUserInputProvider implements AutoCloseable {
 
     public int inputCoordinatesForNextHumanStep(char nameCoordinate) {
         while (true) {
-            System.out.print("Enter " + nameCoordinate + " (1.."+ N +"): ");
+            System.out.print("Enter " + nameCoordinate + " (1.." + N + "): ");
             try {
                 int coordinate = scanner.nextInt();
                 if ((coordinate > 0) && (coordinate <= N)) {
@@ -38,20 +38,14 @@ public class ConsoleUserInputProvider implements AutoCloseable {
                     System.out.println("Invalid value");
                 }
             } catch (Exception e) {
-                System.out.println("You can use only digits from 1 to "+ N + ".");
+                System.out.println("You can use only digits from 1 to " + N + ".");
             }
         }
     }
 
     public boolean restartGameCommandSend() {
         System.out.println("Do you want to play again? Enter yes or no");
-        String answer =  scanner.nextLine();
-        return answer.toLowerCase().equals("yes");
-    }
-
-    //todo exit command
-    public boolean exitCommandSend() {
-        return false;
+        return scanner.nextLine().toLowerCase().equals("yes");
     }
 
     @Override

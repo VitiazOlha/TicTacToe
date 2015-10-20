@@ -9,7 +9,6 @@ public class ConsoleUserInputProvider implements AutoCloseable {
     }
 
     public GameType getGameType() {
-
         System.out.println("Chose the way of game: || PvP || PvC (Player move first) || CvP (Computer move first) || CvC ||");
         if (scanner.hasNext()) {
             String gameType = scanner.nextLine();
@@ -40,7 +39,6 @@ public class ConsoleUserInputProvider implements AutoCloseable {
                     if ((coordinate > 0) && (coordinate <= N)) {
                         return coordinate;
                     } else if (coordinate == 0) {
-                        scanner.close();
                         System.exit(0);
                     } else {
                         System.out.println("Invalid value");
@@ -50,6 +48,7 @@ public class ConsoleUserInputProvider implements AutoCloseable {
                     System.exit(0);
                 }
             } catch (Exception e) {
+                scanner.nextLine();
                 System.out.println("You can use only digits from 1 to " + N + ".");
             }
         }
@@ -69,6 +68,4 @@ public class ConsoleUserInputProvider implements AutoCloseable {
     public void close() throws Exception {
         scanner.close();
     }
-
-
 }

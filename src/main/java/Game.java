@@ -15,7 +15,7 @@ public abstract class Game {
         board = new Board();
     }
 
-    protected boolean isOver() {
+    public boolean isOver() {
         return currentState != GameState.PENDING_GAME;
     }
 

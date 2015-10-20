@@ -69,4 +69,6 @@ public class ConsoleUserInputProvider implements AutoCloseable {
     public void close() throws Exception {
         scanner.close();
     }
+
+
 }

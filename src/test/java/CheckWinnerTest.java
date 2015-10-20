@@ -12,15 +12,16 @@ public class CheckWinnerTest {
         Assert.assertEquals(1, CheckTheValue.checkCell(1, 0, board));
 
         int[][] board1 ={{-1, 1, 1},
-                {-1, 1, -1},
-                {-1, -1, 0}};
+                         {-1, 1, -1},
+                         {-1, -1, 0}};
         Assert.assertEquals(-1, CheckTheValue.checkCell(1, 0, board1));
 
 
         int[][] board2 = {{-1, -1, 1},
-                {1, 1, -1},
-                {-1, 1, 0}};
+                          {1, 1, -1},
+                          {-1, 1, 0}};
         Assert.assertEquals(0, CheckTheValue.checkCell(1, 0, board2));
+
 
     }
 

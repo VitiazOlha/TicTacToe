@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class BoardTest {
 
-    @Test
+      @Test(timeout = 100)
     public void testIsPossibleToMove() throws Exception {
 Board board = new Board();
         board.setFieldValue(0,0,1);

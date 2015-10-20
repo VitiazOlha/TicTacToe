@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class AutoPlayerTest {
-    @Test
+    @Test(timeout = 100)
     public void testMinMaxStart() throws Exception {
         AutoPlayer autoPlayer = new AutoPlayer();
 

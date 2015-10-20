@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class CheckTheValueTest {
 
-    @Test
+    @Test(timeout = 100)
     public void testCheckCell() throws Exception {
         new CheckTheValue();
         int[][] field = {{1, -1, 1},

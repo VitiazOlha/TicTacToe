@@ -3,7 +3,7 @@ import org.junit.Test;
 
 public class BoardStateAnalyzerTest {
 
-    @Test
+    @Test(timeout = 100)
     public void testGetNewGameState() throws Exception {
         Board board = new Board();
         board.setFieldValue(0, 0, 1);

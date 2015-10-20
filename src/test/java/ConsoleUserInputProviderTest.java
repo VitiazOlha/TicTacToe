@@ -16,21 +16,22 @@ public class ConsoleUserInputProviderTest {
 
 String value;
 
-        value =  "pvp";
 
-        assertEquals(GameType.PVP, value);
+        value =  "PVP";
 
-        value = "pvc";
+        assertEquals(String.valueOf(GameType.PVP), value);
 
-        assertEquals(GameType.PVC, value);
+        value = "PVC";
 
-        value = "cvc";
+        assertEquals(String.valueOf(GameType.PVC), value);
 
-        assertEquals(GameType.CVC, value);
+        value = "CVC";
 
-        value = "cvp";
+        assertEquals(String.valueOf(GameType.CVC), value);
 
-        assertEquals(GameType.CVP, value);
+        value = "CVP";
+
+        assertEquals(String.valueOf(GameType.CVP), value);
 
 
     }

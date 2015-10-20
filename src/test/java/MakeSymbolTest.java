@@ -7,7 +7,7 @@ public class MakeSymbolTest {
     @Test(timeout = 100)
     public void testMakeSymbol() throws Exception {
         int value = -1;
-        Assert.assertEquals('O',Board.makeSymbol(value));
+        Assert.assertEquals('O', Board.makeSymbol(value));
 
         value = 1;
         Assert.assertEquals('X', Board.makeSymbol(value));

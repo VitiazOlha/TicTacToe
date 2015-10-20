@@ -1,6 +1,5 @@
 public class GameRunner {
     public static void main(String[] args) {
-
         try (ConsoleUserInputProvider userInputProvider = new ConsoleUserInputProvider()){
             do {
                 Game game = GameFactory.createGame(userInputProvider);

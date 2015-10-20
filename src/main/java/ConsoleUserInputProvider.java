@@ -1,57 +1,68 @@
 import java.util.Scanner;
 
 public class ConsoleUserInputProvider implements AutoCloseable {
-    private Scanner scanner;
     final static int N = 3;
+    private Scanner scanner;
 
     public ConsoleUserInputProvider() {
         this.scanner = new Scanner(System.in);
     }
 
     public GameType getGameType() {
+
         System.out.println("Chose the way of game: || PvP || PvC (Player move first) || CvP (Computer move first) || CvC ||");
-        String gameType = scanner.nextLine();
-        switch (gameType.toLowerCase()) {
-            case "pvp":
-                return GameType.PVP;
-            case "cvc":
-                return GameType.CVC;
-            case "cvp":
-                return GameType.CVP;
-            case "pvc":
-            default:
-                return GameType.PVC;
+        if (scanner.hasNext()) {
+            String gameType = scanner.nextLine();
+            switch (gameType.toLowerCase()) {
+                case "pvp":
+                    return GameType.PVP;
+                case "cvc":
+                    return GameType.CVC;
+                case "cvp":
+                    return GameType.CVP;
+                case "pvc":
+                default:
+                    return GameType.PVC;
+            }
+        } else {
+            System.out.println("Scanner was closed. Game over.");
+            System.exit(0);
+            return GameType.CVC;
         }
     }
 
     public int inputCoordinatesForNextHumanStep(char nameCoordinate) {
         while (true) {
-            System.out.print("Enter " + nameCoordinate + " (1.."+ N +"): ");
+            System.out.print("Enter " + nameCoordinate + " (1.." + N + "): ");
             try {
-                int coordinate = scanner.nextInt();
-                if ((coordinate > 0) && (coordinate <= N)) {
-                    return coordinate;
-                } else if (coordinate == 0) {
-                    System.exit(0);
+                if (scanner.hasNext()) {
+                    int coordinate = scanner.nextInt();
+                    if ((coordinate > 0) && (coordinate <= N)) {
+                        return coordinate;
+                    } else if (coordinate == 0) {
+                        scanner.close();
+                        System.exit(0);
+                    } else {
+                        System.out.println("Invalid value");
+                    }
                 } else {
-
-                    System.out.println("Invalid value");
+                    System.out.println("Scanner was closed. Game over.");
+                    System.exit(0);
                 }
             } catch (Exception e) {
-                System.out.println("You can use only digits from 1 to "+ N + ".");
+                System.out.println("You can use only digits from 1 to " + N + ".");
             }
         }
     }
 
     public boolean restartGameCommandSend() {
         System.out.println("Do you want to play again? Enter yes or no");
-        String answer =  scanner.nextLine();
-        return answer.toLowerCase().equals("yes");
-    }
-
-    //todo exit command
-    public boolean exitCommandSend() {
-        return false;
+        if (scanner.hasNext()) {
+            return scanner.nextLine().toLowerCase().equals("yes");
+        } else {
+            System.out.println("Scanner was closed");
+            return false;
+        }
     }
 
     @Override

@@ -36,10 +36,10 @@ public class Board {
 
     public boolean isPossibleToMove(int x, int y) {
         if (field[x - 1][y - 1] == 0) {
-            return false;
+            return true;
         } else {
             System.out.println("Sell is full, choose another position ");
-            return true;
+            return false;
         }
     }
 

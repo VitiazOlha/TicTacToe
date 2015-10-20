@@ -1,6 +1,5 @@
 public class AutoPlayer implements Player {
     final static int N = 3;
-    private int[][] oldField = new int[N][N];
 
     private void copyField(int[][] field, int[][] oldField) {
         for (int x = 0; x < N; x++) {
@@ -8,26 +7,26 @@ public class AutoPlayer implements Player {
         }
     }
 
-    private void copyBoard(Board board, int value) {
+    private int[][] copyBoard(Board board, int value) {
+        int[][] oldField = new int[N][N];
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {
-                this.oldField[x][y] = value * board.getFieldValue(x, y);
+                oldField[x][y] = value * board.getFieldValue(x, y);
             }
         }
+        return oldField;
     }
 
     @Override
     public void doStep(Board board, int value) {
-        copyBoard(board, value);
-        int[] moveCoordinate;
-        moveCoordinate = minMaxStart();
+        int[] moveCoordinate = minMaxStart(copyBoard(board, value));
         board.setFieldValue(moveCoordinate[0], moveCoordinate[1], value);
         System.out.print(board.convertToString());
     }
 
-    private int[] minMaxStart() {
-        int bestX = -1;
-        int bestY = -1;
+    public int[] minMaxStart(int[][] oldField) {
+        int bestX = Integer.MIN_VALUE;
+        int bestY = Integer.MIN_VALUE;
         int max = Integer.MIN_VALUE;
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < N; y++) {

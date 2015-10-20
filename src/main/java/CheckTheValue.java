@@ -19,7 +19,7 @@ public class CheckTheValue {
         }
     }
 
-    private static int checkRow(int row, int[][] field) {
+    public static int checkRow(int row, int[][] field) {
         int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[row][i];
@@ -31,7 +31,7 @@ public class CheckTheValue {
         }
     }
 
-    private static int checkColumn(int column, int[][] field) {
+    public static int checkColumn(int column, int[][] field) {
         int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][column];
@@ -43,7 +43,7 @@ public class CheckTheValue {
         }
     }
 
-    private static int checkMainDiagonal(int[][] field) {
+    public static int checkMainDiagonal(int[][] field) {
         int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][i];
@@ -55,7 +55,7 @@ public class CheckTheValue {
         }
     }
 
-    private static int checkSideDiagonal(int[][] field) {
+    public static int checkSideDiagonal(int[][] field) {
         int sum = 0;
         for (int i = 0; i < N; i++) {
             sum += field[i][N - 1 - i];

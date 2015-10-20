@@ -18,14 +18,14 @@ public class MakeSymbolTest {
         int value1 = 1;
         Assert.assertEquals('X', Board.makeSymbol(value1));
 
-        int value2 = 5;
+       int value2 = 5;
         Assert.assertEquals(' ', Board.makeSymbol(value2));
 
         int value3 = -99;
         Assert.assertEquals(' ', Board.makeSymbol(value3));
 
-        int value4 = Integer.parseInt(null);
-        Assert.assertEquals(' ', Board.makeSymbol(value4));
+       int value4 = Integer.parseInt(null);
+       Assert.assertEquals(' ', Board.makeSymbol(value4));
 
         int value5 = (int) -99.6;
         Assert.assertEquals(' ', Board.makeSymbol(value5));

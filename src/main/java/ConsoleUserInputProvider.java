@@ -57,6 +57,7 @@ public class ConsoleUserInputProvider implements AutoCloseable {
     public boolean restartGameCommandSend() {
         System.out.println("Do you want to play again? Enter yes or no");
         if (scanner.hasNext()) {
+            scanner.nextLine();
             return scanner.nextLine().toLowerCase().equals("yes");
         } else {
             System.out.println("Scanner was closed");
